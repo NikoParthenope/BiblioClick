@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="View.css">
+    <link rel="stylesheet" href="bottoni.css">
+</head>
+<body>
+    
+    <div id="UpperBar">
+        <p>BiblioClick</p>
+        <div id="Navigationbar" style="padding:20px;">
+            <button id="HomeButton">Home</button>
+            <button id="AboutButton">About</button>
+            <button id="ContactButton">Contact</button>
+            <button id="SignIn" class="RelevantButton">Sign Up</button>
+        </div>
+    </div>
+    <div id="UpperContainer" class="Container">
+        <div>
+            <pre style="font-size: clamp(3vw, 3.5vw, 4vw);margin:0;font-weight: 750;color: rgb(28,47,71);">READ AND
+DISCUSS BOOKS</pre>
+            <pre style="font-size: clamp(1vw, 1.25vw, 1.5vw);margin:0;color: rgb(28,47,71)">Explore book club and join the
+discussion.
+            </pre>
+                <div>
+                <button id="ExploreClub" class="RelevantButton">Explore Club</button>
+                <button id="JoinClub" class="RelevantButton">Join Club</button>
+                </div>
+        </div>
+        <div style="width: 100%;height:100%;display:flex;justify-content:center">
+            <image src="Senza titolo.png" style="max-width:  clamp(10vw, 50vw, 100vw);height: auto;"></image>
+        </div>
+    </div>
+    <div id="FeaturedBookContainer" style="padding-left: 2vw;padding-right: 2vw;margin-top:3vh">
+    <p style="font-weight: 750;color: rgb(28,47,71);font-size: clamp(1.5vw, 2.0vw, 2.5vw)">Featured Books</p>
+        <div id="FeaturedBooks">
+            <div class="ContentSwitcher">
+                <div class="ButtonSwitcher"></div>
+                <div class="ButtonSwitcher"></div>
+            </div>
+            <div class="BookCard"></div>
+            <div class="BookCard"></div>
+            <div class="BookCard"></div>
+            <div class="BookCard"></div>
+            <div class="BookCard"></div>
+            <div class="BookCard"></div>
+        </div>
+    </div>
+    <div id="PopularBookClubs" class="Container" style="display:block; padding-top: 1vw;padding-bottom:1vw;margin-top:3vh;">
+        <p style="font-weight: 750;color: rgb(28,47,71);font-size: clamp(1.5vw, 2.0vw, 2.5vw);">Popular Book Clubs</p>
+        <div id="PopularClubs" style="display:flex;padding-left: 2vw;padding-right: 2vw;flex-wrap: wrap;column-gap:1em;row-gap:1em; justify-content:space-around;">
+            <div id="club1" class="Club">
+
+            </div>
+                        <div id="club1" class="Club">
+
+            </div>
+                        <div id="club1" class="Club">
+
+            </div>
+                        <div id="club1" class="Club">
+
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>

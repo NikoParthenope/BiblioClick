@@ -1,0 +1,52 @@
+@keyframes UnderLineAnimation{
+    0%{
+        width: 0%;
+    }100%{
+        width: 100;
+    }
+}
+#Navigationbar button:not(.RelevantButton){
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: clamp(0.6vw, 1vw, 1.5vw);
+    border: none;
+    background: none;
+    position: relative;
+}
+#Navigationbar button:not(.RelevantButton):hover::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    bottom: -4px;
+    left: 0px;
+    background-color: black;
+    animation-duration: 0.5s;
+    animation-name: UnderLineAnimation;
+}
+
+.RelevantButton{
+    font-weight: 750;
+    font-size: clamp(1vw, 1.2vw, 1.2vw);
+    color: white;
+    background-color: rgb(73,150,159);
+    padding-top: clamp(0.2vw, 0.4vw, 0.6vw);
+    padding-bottom: clamp(0.2vw, 0.4vw, 0.6vw);
+    padding-left: clamp(1.2vw, 1.4vw, 1.6vw);
+    padding-right: clamp(1.2vw, 1.4vw, 1.6vw);
+    border-radius: 7px;
+    border: 1px solid rgb(148,193,197);
+}
+.ButtonSwitcher{
+    width:4.5vw;
+    height:4.5vw;
+    opacity: 0.6;
+    background-color: gray;
+    position:relative;
+    border-radius: 56px;
+}
+.Club{
+    width: 40vw;
+    height: 11vw;
+    background-color: gray;
+}
