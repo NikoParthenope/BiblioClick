@@ -46,7 +46,10 @@
     border-radius: 56px;
 }
 .Club{
-    width: 40vw;
-    height: 11vw;
-    background-color: gray;
+    display:flex;
+    align-items: center;
+    border-radius: 7px;
+    width: 45%;
+    height: 10vw;
+    background-color: rgb(255,254,253);
 }
