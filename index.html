@@ -6,23 +6,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="CSS/View.css">
     <link rel="stylesheet" href="CSS/bottoni.css">
+    <link rel="stylesheet" href="CSS/Text.css">
 </head>
 <body>
     
     <div id="UpperBar">
         <p>BiblioClick</p>
         <div id="Navigationbar" style="padding:20px;">
-            <button id="HomeButton">Home</button>
-            <button id="AboutButton">About</button>
-            <button id="ContactButton">Contact</button>
+            <button id="HomeButton" class="Corpo">Home</button>
+            <button id="AboutButton" class="Corpo">About</button>
+            <button id="ContactButton" class="Corpo">Contact</button>
             <button id="SignIn" class="RelevantButton">Sign Up</button>
         </div>
     </div>
-    <div id="UpperContainer" class="Container">
+    <div id="UpperContainer" class="FlexContainer">
         <div>
-            <pre style="font-size: clamp(3vw, 3.5vw, 4vw);margin:0;font-weight: 750;color: rgb(28,47,71);">READ AND
+            <pre class="Titolo">READ AND
 DISCUSS BOOKS</pre>
-            <pre style="font-size: clamp(1vw, 1.25vw, 1.5vw);margin:0;color: rgb(28,47,71)">Explore book club and join the
+            <pre class="Corpo">Explore book club and join the
 discussion.
             </pre>
                 <div>
@@ -35,7 +36,7 @@ discussion.
         </div>
     </div>
     <div id="FeaturedBookContainer" style="padding-left: 2vw;padding-right: 2vw;margin-top:3vh">
-    <p style="font-weight: 750;color: rgb(28,47,71);font-size: clamp(1.5vw, 2.0vw, 2.5vw)">Featured Books</p>
+        <p class="Intestazione">Featured Books</p>
         <div id="FeaturedBooks">
             <div class="ContentSwitcher">
                 <div class="ButtonSwitcher"></div>
@@ -49,35 +50,35 @@ discussion.
             <div class="BookCard"></div>
         </div>
     </div>
-    <div id="PopularBookClubs" class="Container" style="display:block; padding-top: 1vw;padding-bottom:1vw;margin-top:3vh;">
-        <p style="font-weight: 750;color: rgb(28,47,71);font-size: clamp(1.5vw, 2.0vw, 2.5vw);">Popular Book Clubs</p>
-        <div id="PopularClubs" style="display:flex;padding-left: 2vw;padding-right: 2vw;flex-wrap: wrap;column-gap:1em;row-gap:1em; justify-content:space-around; max-width: 100%; max-height: 100%;">
+    <div id="PopularBookClubs" class="Container">
+        <p class="Intestazione">Popular Book Clubs</p>
+        <div id="PopularClubs" class="FlexContainer WrapFlexContainer">
             <div class="Club">
                 <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section>
-                    <p style="margin-bottom:0px;font-size: clamp(1vw, 1.25vw, 1.5vw);"> Libro prova</p>
-                    <p style="margin-top:0px;font-size: clamp(1vw, 1.25vw, 1.5vw);">293 membri</p>
+                <section style="padding-bottom: 5%;">
+                    <p class="SottoIntestazione"> Libro prova</p>
+                    <p class="Corpo">293 membri</p>
                 </section>
             </div>
             <div class="Club">
                 <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section>
-                    <p style="margin-bottom:0px;font-size: clamp(1vw, 1.25vw, 1.5vw);"> Libro prova</p>
-                    <p style="margin-top:0px;font-size: clamp(1vw, 1.25vw, 1.5vw);">293 membri</p>
+                <section style="padding-bottom: 5%;">
+                    <p class="SottoIntestazione"> Libro prova</p>
+                    <p class="Corpo">293 membri</p>
                 </section>
             </div>
             <div class="Club">
                 <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section>
-                    <p style="margin-bottom:0px;font-size: clamp(1vw, 1.25vw, 1.5vw);"> Libro prova</p>
-                    <p style="margin-top:0px;font-size: clamp(1vw, 1.25vw, 1.5vw);">293 membri</p>
+                <section style="padding-bottom: 5%;">
+                    <p class="SottoIntestazione"> Libro prova</p>
+                    <p class="Corpo">293 membri</p>
                 </section>
             </div>
             <div class="Club">
                 <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section>
-                    <p style="font-size: clamp(1.5vw, 1.75vw, 2vw);font-weight: 750;color: rgb(28,47,71);""> Libro prova</p>
-                    <p style="font-size: clamp(1vw, 1.25vw, 1.5vw);color: rgb(28,47,71);"">293 membri</p>
+                <section style="padding-bottom: 5%;">
+                    <p class="SottoIntestazione"> Libro prova</p>
+                    <p class="Corpo">293 membri</p>
                 </section>
         </div>
     </div>
