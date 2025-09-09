@@ -1,0 +1,61 @@
+@import "variables.css";
+@import "Calendar.css";
+.TabView{
+    display: flex;
+    width: 99vw;
+    height: 99vh;
+}
+.TabView .Tab .UpperTab{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.TabView .Tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.TabView:has(> .Tab #DashBoard:checked) .Content #DashBoardContent{
+    display:block;
+}
+.TabView:has(> .Tab #Security:checked) .Content #SecurityContent{
+    display:block;
+}
+.TabView label{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 5px;
+    border-radius: 18px;
+    text-align: center;
+
+}
+.TabView input[type="radio"]{
+    display: none;
+}
+.TabView input[type="radio"]:checked + label{
+   color:rgb(0,114,247);
+   background-color: hsl(0,0%,50%,0.3);
+   border-color: var(--SystemGray2);
+}
+.TabView .Content{
+    display: flex;
+    width: 100%;
+
+}
+
+.Content .ContenutoTab{
+    width: 100%;
+    display:none;
+}
+
+body{
+    margin:0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+}
+#ProfileMyClub button{
+    width: 100%;
+}
