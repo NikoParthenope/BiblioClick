@@ -1,0 +1,118 @@
+:root{
+    --SystemGray2Dark: rgb(99,99,102);
+    --SystemGray3Dark: rgb(72,72,74);
+    --SystemGray4Dark: rgb(58,58,60);
+    --SystemGray5Dark: rgb(44,44,46);
+    --SystemGray6Dark: rgb(28,28,30);
+    --SystemGray: rgb(142,142,147);
+    --SystemGray2: rgb(174,174,178);
+    --SystemGray3: rgb(199,199,204);
+    --SystemGray4: rgb(209,209,214);
+    --SystemGray5: rgb(229,229,234);
+    --SystemGray6: rgb(242,242,247);
+    --TabViewIndicatorPos: -110%;
+}
+.GlassColor{
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background: hsl(0,0%,100%,0.4);
+    backdrop-filter: blur(2.5px);
+}
+.GlassButton{
+    box-shadow: inset 0 0 8px 1px hsl(0,0%,100%,0.3);
+}
+body{
+    background-color:rgb(244,227,197);
+    margin: 0;
+    padding: 0;
+    display:flex;
+    justify-content:center;
+    min-width: 600px;
+}
+button{
+    border: none;
+    width: 15vw;
+    height: 6vh;
+    border-radius: 30px;
+    margin: 10px;
+    padding:0;
+    transition: 0.5s;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+}
+button:hover, select:hover{
+    background-color: hsl(0,0%,70%,0.3);
+    opacity: 1;
+    transition: 0.3s;
+}
+.InformationContainer{
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+    padding:0;
+    transition: 0.5s;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+}
+.ElementContentColumn{
+    width: 100%;
+    height: 100%; 
+    position: relative;
+    display:flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ElementContentRow{
+    width: 100%;
+    height: 100%; 
+    position: relative;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+}
+select{
+    border: none;
+    width: 15vw;
+    height: 6vh;
+    border-radius: 30px;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+    width:90%;
+}
+input[type="number"]{
+    border: none;
+    width: 15vw;
+    height: 6vh;
+    border-radius: 30px;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+    width:90%;
+    margin-left:20px;
+    margin-right:20px;
+}
+input[type="search"]{
+    right: 0;
+    position: absolute;
+    border-radius: 36px;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+    width:3.3%;
+    height: 90%;
+    transition: width 0.5s ease;
+    text-transform: none;
+}
+input[type="search"]:focus{
+    width: 20%;
+    transition: width 0.5s ease;
+}
+input[type="search"]::placeholder{
+    text-align: center;
+}
+input[type="search"]:focus::placeholder{
+    color: transparent;
+}

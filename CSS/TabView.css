@@ -1,0 +1,111 @@
+@import "variables.css";
+@import "keyframes.css";
+@import "Profile.css";
+@import "ToggleButton.css";
+@import "ClubCards.css";
+@import "Calendar.css";
+.Tabs{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    border-radius: 36px;
+    padding-left:10px; 
+    margin-top:10px; 
+    
+}
+.Tabs::after{
+    content: '';
+    border-radius: 36px;
+    width:min(60%,320px);
+    height:clamp(8vh,65px,68px);
+    justify-content: center;
+    margin-right: 0.9vw;
+    background-color: hsl(0,0%,70%,0.3);
+    z-index: 0;
+    position:absolute;
+}
+.Tabs input[type='radio']{
+    display:none;
+}
+.Tabs label{
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    z-index: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.Tabs .ContenutoTab{
+    position: absolute;
+    width: 98%;
+    height: 90vh;
+    top: 8vh;
+    left:0;
+    order: 1;
+    display: none;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 2vh;
+    animation-duration: 1s;
+    animation-name: Fade-In;
+        z-index: 0;
+}
+
+.Tabs input[type='radio']:checked + label + .ContenutoTab{
+    display:block;
+}
+.Tabs input[type='radio']:is(#HomeTab1):checked + label{
+    color:rgb(0,114,247);
+}
+.Tabs input[type='radio']:is(#HomeTab2):checked + label{
+    color:rgb(0,114,247);
+}
+.Tabs input[type='radio']:is(#HomeTab3):checked + label{
+    color:rgb(0,114,247);
+}
+.Tabs input[type='radio']:is(#HomeTab1):checked ~ .Indicator{
+    transform: translateX(-110%);
+    --TabViewIndicatorPos: -110%;
+    animation-duration: 0.5s;
+    animation-name: FirstElementAnimation;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+.Tabs input[type='radio']:is(#HomeTab2):checked ~ .Indicator{
+    transform: translateX(-17%);
+    --TabViewIndicatorPos: -17%;
+    animation-duration: 0.5s;
+    animation-name: SecondElementAnimation;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+.Tabs input[type='radio']:is(#HomeTab3):checked ~ .Indicator{
+    transform: translateX(90%);
+    --TabViewIndicatorPos: 90%;
+    animation-duration: 0.5s;
+    animation-name: ThirdElementAnimation;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+.Indicator{
+    position:absolute;
+    top: 1.80vh;
+    width: 100px;
+    height: 35px;
+    border-radius: 16px;
+    transition: 0.5s;
+    z-index: 0;
+
+}
+.IndicatorGlass{
+    position:absolute;
+    width: 100px;;
+    height: 50px;
+    border-radius: 36px;
+    transition: 0.5s;
+    z-index: 2;
+    background-color: hsl(0,0%,70%,0.3);
+    border: 3px solid hsl(0,0%,100%,0);
+}

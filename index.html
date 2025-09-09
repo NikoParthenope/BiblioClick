@@ -4,85 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/View.css">
-    <link rel="stylesheet" href="CSS/bottoni.css">
-    <link rel="stylesheet" href="CSS/Text.css">
+    <link rel="stylesheet" href="CSS/TabView.css">
 </head>
 <body>
-    
-    <div id="UpperBar">
-        <p>BiblioClick</p>
-        <div id="Navigationbar" style="padding:20px;">
-            <button id="HomeButton" class="Corpo">Home</button>
-            <button id="AboutButton" class="Corpo">About</button>
-            <button id="ContactButton" class="Corpo">Contact</button>
-            <button id="SignIn" class="RelevantButton">Sign Up</button>
-        </div>
-    </div>
-    <div id="UpperContainer" class="FlexContainer">
-        <div>
-            <pre class="Titolo">READ AND
+    <nav style="display:flex;width: 99%;justify-content: space-between;">
+        <h2>BibioClick</h2>
+        <div class="Tabs">
+            <input type="radio" id="HomeTab1" name="NavBar" checked="checked">
+            <label for="HomeTab1">Home</label>
+            <div class="ContenutoTab" style="    background-image: url(assets/MainPage.png); background-repeat: no-repeat; background-size: cover;">
+                <div class="ElementContentColumn">
+                    <div class="ElementContentRow">
+                        <div class="ElementContentColumn">
+                            <div class="ElementContentColumns">
+                            <pre style="font-size:450%;font-weight: bold; margin:0;">READ AND 
 DISCUSS BOOKS</pre>
-            <pre class="Corpo">Explore book club and join the
-discussion.
-            </pre>
-                <div>
-                <button id="ExploreClub" class="RelevantButton">Explore Club</button>
-                <button id="JoinClub" class="RelevantButton">Join Club</button>
-                </div>
-        </div>
-        <div style="width: 100%;height:100%;display:flex;justify-content:center">
-            <image src="assets/MainPage.png" style="max-width:  clamp(10vw, 30vw, 50vw);height: auto;"></image>
-        </div>
-    </div>
-    <div id="FeaturedBookContainer" style="padding-left: 2vw;padding-right: 2vw;margin-top:3vh">
-        <p class="Intestazione">Featured Books</p>
-        <div id="FeaturedBooks">
-            <div class="ContentSwitcher">
-                <div class="ButtonSwitcher"></div>
-                <div class="ButtonSwitcher"></div>
-            </div>
-            <div class="BookCard"></div>
-            <div class="BookCard"></div>
-            <div class="BookCard"></div>
-            <div class="BookCard"></div>
-            <div class="BookCard"></div>
-            <div class="BookCard"></div>
-        </div>
-    </div>
-    <div id="PopularBookClubs" class="Container">
-        <p class="Intestazione">Popular Book Clubs</p>
-        <div id="PopularClubs" class="FlexContainer WrapFlexContainer">
-            <div class="Club">
-                <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section style="padding-bottom: 5%;">
-                    <p class="SottoIntestazione"> Libro prova</p>
-                    <p class="Corpo">293 membri</p>
-                </section>
-            </div>
-            <div class="Club">
-                <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section style="padding-bottom: 5%;">
-                    <p class="SottoIntestazione"> Libro prova</p>
-                    <p class="Corpo">293 membri</p>
-                </section>
-            </div>
-            <div class="Club">
-                <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section style="padding-bottom: 5%;">
-                    <p class="SottoIntestazione"> Libro prova</p>
-                    <p class="Corpo">293 membri</p>
-                </section>
-            </div>
-            <div class="Club">
-                <div id="imageclub" style="background-color:red; height:75%; width: 19%; margin:2vw;"></div>
-                <section style="padding-bottom: 5%;">
-                    <p class="SottoIntestazione"> Libro prova</p>
-                    <p class="Corpo">293 membri</p>
-                </section>
-        </div>
-    </div>
+                            <pre style="font-size:200%; margin:0;">Explore book clubs and join the 
+discussion</pre>
 
-    <script type="module" src="JS/index.js"></script>
+                            </div>
+                            <div class="ElementContentRow" style="justify-content: space-around;">
+                            <button>Lista Club</button>
+                            </div>
+                        </div>
+                        <div class="ElementContentColumn">
+                            
+                        </div>
+                    </div>
+                    <div class="ElementContentRow">
+                        <div class="ElementContentRow">
+                            <div class="ElementContentColumn" style="margin-right:20px;">
+                                <div class="InformationContainer ElementContentColumn" style="width: clamp(15vw,45vw,25vw);height: clamp(30vh,40vh,45vh); position:absolute; right:0;justify-content: space-around;">
+                                    <section style="width:90%;">
+                                    <h1>Club più attivi</h1>
+                                    <p>Visita i club che discutono attivamente.</p>
+                                    </section>
+                                    <button>Learn more</button>
+                                </div>
+
+                            </div>
+                            <div class="ElementContentRow" style="margin-left:20px;">
+                                <div class="InformationContainer ElementContentColumn" style="width: clamp(15vw,45vw,25vw);height: clamp(30vh,40vh,45vh); position:absolute; left:0; justify-content: space-around;">
+                                    <section style="width:90%;">
+                                    <h1>Club più recenti</h1>
+                                    <p>Fai nuovi amici con club appena creati</p>
+                                    </section>
+                                    <button>Learn more</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" id="HomeTab2" name="NavBar">
+            <label for="HomeTab2">Club</label>
+            <div class="ContenutoTab">
+                <div class="ElementContentRow">
+                    <div class="ElementContentColumn">
+                        <div class="InformationContainer ElementContentColumn" style="width: clamp(15vw,45vw,25vw);height: auto; position:absolute; left:0; justify-content: space-around;padding:10px;">
+                            <section class="ElementContentRow">
+                                <h1>Advaced Search</h1>
+                                <button>clear all</button>
+                            </section>
+                            <form class="ElementContentColumn">
+                            <label for="TemiLibri">Temi del bookclub</label>
+                            <select id="TemiLibri">
+                                <option>CIAO COME STAI</option>
+                            </select>
+                            <section class="ElementContentColumn">
+                                <label>Membri</label>
+                                <section class="ElementContentRow" style="justify-content: space-around;">
+                                    <input id="MinMembri" type="number" max="49" min="1" value="0" step="1">
+                                    <p style="margin:0;">a</p>
+                                    <input class="IncrementArrow" id="MaxMembri" type="number" max="50" min="2" value="0" step="1">
+                                </section>
+                            </section>
+                            <section class="ToggleButtonContainer">
+                                <input type="checkbox" id="test">
+                                <label for="test" class="ToggleButton"></label>
+                                 <p>Solo Club Accessibili</p>
+                            </section>
+                            <label for="LinguaClub">Lingua del Club</label>
+                            <select id="LinguaClub">
+                                <option>CIAO COME STAI</option>
+                            </select>
+                            <label for="FrequenzaDiscussioni">Frequenza discussioni</label>
+                            <select id="FrequenzaDiscussioni">
+                                <option>CIAO COME STAI</option>
+                            </select>
+                            <label for="Ordinamento">Ordina per</label>
+                            <select id="Ordinamento">
+                                <option>CIAO COME STAI</option>
+                            </select>
+                            </form>
+                            
+                        </div>
+                    </div>
+                    <div class="ElementContentColumn" style="width: 250%; height: auto;">
+                        <div class="ElementContentColumn" style=" height: 5vh;">
+                            <input type="search" placeholder="&#128269">
+                        </div>
+                        <div class=" CardContainer">
+                            <div class="Card">
+                                <div class="ElementContentColumn" >
+                                    <div class="ElementContentRow" >
+                                        <div class="ElementContentRow" ><p style="position: absolute; top:0; left:2pvw;">Italiano</p></div>
+                                        <div class="ElementContentRow"> <p style="font-size:100px;margin:0;">&#9728</p></div>
+                                        <div class="ElementContentRow" ><p style="position: absolute; top:0; right:2vw;">12/20&#128110</p></div>
+                                    </div>
+                                    <div class="ElementContentColumn">
+                                        <h1 style="margin: 0; padding:0;">BookClub Name</h1>
+                                        <p style="margin: 0; padding:0;">Paragrafo</p>
+                                        <button>Richiedi Accesso</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Card" style="visibility: hidden;">C</div>
+                            <div class="Card" style="visibility: hidden;">C</div>
+                            <div class="Card" style="visibility: hidden;">C</div>
+                            <div class="Card" style="visibility: hidden;">C</div>
+                            <div class="Card" style="visibility: hidden;">C</div>
+                        </div>
+                        <div class="ElementContentColumn" style=" height: 5vh;">
+                            <div class="ElementPaginationButton">
+                                <div class="NumericButton" id="NumericButtonID">
+                                    <div id="IndicatorPagin" style="visibility:hidden;align-items:center;display:flex;align-items:center;">
+                                        <div class="IndicatorGlass GlassColor" style="width: 45px;height: 45px;"></div>
+                                    </div>
+                                    <button><</button>
+                                    <button class="Active">1</button>
+                                    <button>2</button>
+                                    <button>></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" id="HomeTab3" name="NavBar">
+            <label for="HomeTab3">About Us</label>
+            <div class="ContenutoTab" style="    background-image: url(assets/AboutUsPage.png); background-repeat: no-repeat; background-size: cover;">
+                <div class="ElementContentColumn">
+                    <div class="ElementContentRow">
+                        <div class="ElementContentColumn">
+                            <div class="ElementContentColumns">
+                            <pre style="font-size:450%;font-weight: bold; margin:0;">ABOUT US</pre>
+                            <pre style="font-size:200%; margin:0;">Explore book clubs and join the 
+discussion</pre>
+
+                            </div>
+
+                        </div>
+                        <div class="ElementContentColumn">
+                            
+                        </div>
+                    </div>
+                    <div class="ElementContentRow">
+
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="Indicator">
+                <div class="IndicatorGlass GlassColor"></div>   
+            </div>     
+        </div>
+        <div class="Profile">
+            <div class="ImgProfile"></div>
+            <div id="Menu" class="HoverMenu">
+                <div id="Content" class="ContentWrapper GlassColor">
+                    <button >TEST1</button>
+                    <button >TEST1</button>
+                    <button >TEST1</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="JS/index.js"></script>
 </body>
 </html>

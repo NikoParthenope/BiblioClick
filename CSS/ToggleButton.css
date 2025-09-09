@@ -1,0 +1,70 @@
+.ToggleButtonContainer{
+    display:flex; 
+    justify-content: center; 
+    align-items: center;
+    transition: 0.2s;
+    transform: scale(0.5);
+}
+.ToggleButtonContainer p{
+    transform: scale(2);
+}
+.ToggleButtonContainer input[type="checkbox"]{
+    visibility: hidden;
+}
+.ToggleButtonContainer label{
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    width: clamp(3vw,12vw,7vw);
+    height: clamp(1vh,6vh,3vh);
+    border-radius: 200px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.ToggleButtonContainer .ToggleButton::before{
+    content: '';
+    position: absolute;
+    width: clamp(3vw,11vw,6vw);
+    height: clamp(4vh,13vh,7vh);
+    transform: translateX(-1vw);
+    border-radius: 200px;
+    background-color: white;
+    transition: 0.2s;
+}
+.ToggleButtonContainer .ToggleButton::after{
+    content: '';
+    position: absolute;
+    transform: translateX(1.9vw);
+    width: clamp(3vw,11vw,6vw);
+    height: clamp(4vh,13vh,7vh);
+    border-radius: 200px;
+    background-color: white;
+    transition: 0.2s;
+    visibility: hidden;
+}
+.ToggleButtonContainer input[type="checkbox"]:checked + label{
+    background-color: green;
+}
+.ToggleButtonContainer input[type="checkbox"]:checked + .ToggleButton::before{
+    animation-name: ToggleButtonAnimation;
+    animation-duration: 1s;
+    visibility: hidden;
+}
+.ToggleButtonContainer input[type="checkbox"]:checked + .ToggleButton::after{
+    animation-name: Show;
+    animation-duration: 1s;
+    visibility: visible;
+}
+.ToggleButtonContainer input[type="checkbox"]:not(:checked) + .ToggleButton::after{
+    animation-name: ToggleButtonAnimation;
+    animation-duration: 1s;
+    animation-direction: reverse;
+    transform: translateX(-1vw);
+}
+.ToggleButtonContainer input[type="checkbox"]:not(:checked) + .ToggleButton::before{
+    animation-name: Show;
+    animation-duration: 1s;
+    visibility: visible;
+}
+
+

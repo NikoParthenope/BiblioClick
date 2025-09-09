@@ -1,0 +1,50 @@
+.CardContainer{
+    width: 100%;
+    position: relative;
+    display:flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Card{
+    width: 20vw;
+    height: 35vh;
+    display: block;
+    margin: 15px;
+    position: relative;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+}
+.ElementPaginationButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ElementPaginationButton button{
+    border-radius: 200px;
+    width: 3vw;
+}
+.NumericButton{
+    bottom: 1.70vh;
+    display:flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,70%,0.3);
+    backdrop-filter: blur(2.5px);
+    border-radius: 36px;
+}
+.NumericButton button{
+    border: none;
+    background-color: transparent;
+
+}
+
+.NumericButton button:is(.Active){
+    background-color: hsl(0,0%,70%,0.3);
+    backdrop-filter: blur(2.5px);
+    color:rgb(0,114,247);
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/TabView.css">
+</head>
+<body>
+    <nav style="display:flex;width: 99%;justify-content: space-between;">
+        <h2>BibioClick</h2>
+        <div class="Tabs">
+            <input type="radio" id="HomeTab1" name="NavBar" checked="checked">
+            <label for="HomeTab1">Home</label>
+
+
+            <input type="radio" id="HomeTab2" name="NavBar" checked="checked">
+            <label for="HomeTab2">Club</label>
+            <div class="ContenutoTab">
+                <div class="ElementContentColumn" >
+                    <div class="ElementContentRow" >
+                        <div class="ElementContentColumn" >
+                    <p style="font-size:250px;margin:0;">&#9728</p>
+                        </div>
+                        <div class="ElementContentColumn" >
+                            <div class="ElementContentColumn">
+                                <h1>Nome BookClub</h1>
+                                <p>Descrizione</p>  
+                            </div>
+                            <div class="ElementContentColumn">
+                            <button>Richiedi accesso</button> 
+                            </div>
+                        </div>
+                        <div class="ElementContentColumn" style=" align-items: center;">
+                                <div class="InformationContainer ElementContentColumn" style="width: 90%;height: auto;justify-content: space-around;">
+                                    <div class="ElementContentRow" style="width:90%;text-align: center;display:block;"> 
+                                        <h1>Prossima Discussione</h1>
+                                        <p style="font-size:100px;margin:0;">&#9728</p>
+                                        <p>Descizione discussione</p>
+                                    </div>
+                                    <button>10:30 Aprile</button>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="ElementContentRow" >
+                        <div class="ElementContentColumn" style="width: 50%;">                                    
+                            <div class="InformationContainer ElementContentColumn" style="width: 90%;height: clamp(30vh,40vh,45vh); position:absolute;justify-content: space-around;">
+                                    <div class="ElementContentRow" style="height: 35%;">
+                                        <h3>Calendario Discussioni</h3>
+                                    </div>
+                                    <div class="ElementContentRow" style="width:90%;" >
+                                        <div class="Calendar">
+                                            <div class="CalendarMonth">
+                                                <button><</button>
+                                                <p style="width: 100%; text-align: center;color:red;font-weight: bold;">Settembre</p>
+                                                <button>></button>
+                                            </div>
+                                            <div id="IndicatorPagin" style="z-index:0;visibility:hidden;align-items:center;display:flex;align-items:center;">
+                                                <div class="IndicatorGlass" style="width: 25px;height: 25px;background-color:var(--SystemGray2);"></div>
+                                            </div>
+                                            <div class="Calendartwo" id="CalendarDaysID">
+                                                <div style="font-weight: bold;">L</div>
+                                                <div style="font-weight: bold;">M</div>
+                                                <div style="font-weight: bold;">M</div>
+                                                <div style="font-weight: bold;">G</div>
+                                                <div style="font-weight: bold;">V</div>
+                                                <div style="font-weight: bold;">S</div>
+                                                <div style="color:red;font-weight: bold;">D</div>
+                                                                                            <div>1</div>
+                                                <div class="Active">2</div>
+                                            <div>3</div>
+                                            <div>4</div>
+                                            <div>5</div>
+                                            <div>6</div>
+                                            <div>7</div>
+                                                                                        <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                                                                        <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                                                                        <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                                                                        <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            <div>C</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="ElementContentColumn" >
+                                <div class="InformationContainer ElementContentColumn" style="width: 90%;height: clamp(30vh,40vh,45vh); position:absolute;justify-content: space-around;">
+                                    <div class="ElementContentRow" style="height: 35%;">
+                                        <div class="ElementContentRow" ><p style="position: absolute;left:10px;">Italiano</p></div>
+                                        <div class="ElementContentRow" ><p style="position: absolute;right:10px;">12/20&#128110</p></div>
+                                    </div>
+                                    <div class="ElementContentRow" style="justify-content: flex-start; align-items:start;">
+                                        <button>Storico</button>
+                                        <button>Storico</button>
+                                        <button>Storico</button>
+                                    </div>
+                                    <div class="ElementContentColumn" style="height: 35%;">
+                                        <button style="position:absolute;right:5px;">Cronologia Discussioni</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="radio" id="HomeTab3" name="NavBar">
+            <label for="HomeTab3">About Us</label>
+
+
+            <div class="Indicator">
+                <div class="IndicatorGlass GlassColor"></div>   
+            </div>     
+        </div>
+        <div class="Profile">
+            <div class="ImgProfile"></div>
+            <div id="Menu" class="HoverMenu">
+                <div id="Content" class="ContentWrapper GlassColor">
+                    <button >TEST1</button>
+                    <button >TEST1</button>
+                    <button >TEST1</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="JS/Main.js"></script>
+</body>
+</html>
