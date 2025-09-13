@@ -14,7 +14,7 @@
                 <input type="radio" id="DashBoard"name="NavBarProfile" checked="checked">
                 <label for="DashBoard">DashBoard</label>
                 <input type="radio" id="Security" name="NavBarProfile">
-                <label for="Security">Security</label>
+                <label for="Security">I miei dati</label>
             </div>
             <div class="LowerTab">
                 <button>Logout</button>
@@ -94,8 +94,80 @@
                     </div>
                 </div>
             </div>
-            <div id="SecurityContent" class="ContenutoTab   ">
-                <button>REWSR</button>
+            <div id="SecurityContent" class="ContenutoTab">
+                                <div class="InformationContainer ElementContentColumn" style="width: 90%;height: 90%;justify-content: center;">
+                                    <div class="ElementContentRow" style="width:100%;text-align: center;display:block; height: 100%;"> 
+                                        <h1>Miei Club</h1>
+                                        <div class="ElementContentColumn" style="height:auto;">
+                                            <div class="ImmagineProfilo"></div>
+                                        </div>
+                                        <div class="ElementContentColumn" style="height:73%;">
+                                            <div style="width:100%;height:100%;">
+                                                <div class="SettingsTabs">
+                                                    
+                                                    <input type="radio" id="SettingsTabsGeneral" name="SettingsTabsInput" checked="checked">
+                                                    <label for="SettingsTabsGeneral">Generale</label>
+                                                    <div class="ContenutoSettings">
+                                                        <form id="GeneralForm">
+                                                            <div class="ElementContentRow" style="width:100%;">
+                                                            <div style="width:100%;">
+                                                                <label for="NomeUtente">Nome</label>
+                                                                <input id="NomeUtente" type="text">
+                                                            </div>
+
+                                                            <div style="width:100%;">
+                                                                <label for="NomeUtente">Cognome</label>
+                                                                <input id="NomeUtente" type="text">
+                                                            </div>
+
+                                                            <div style="width:100%;">
+                                                                <label for="EmailUtente">eMail</label>
+                                                                <input id="EmailUtente" type="text">
+                                                            </div>
+                                                            </div>
+
+                                                                <input id="SaveButtonPassword" value="Salva" type="submit">
+                                                                <input id="ResetButtonPassword" value="Annulla" type="reset">
+                                                           
+                                                        </form>
+                                                    </div>
+                                                    <input type="radio" id="SettingsTabSicurezza" name="SettingsTabsInput">
+                                                    <label for="SettingsTabSicurezza">Sicurezza</label>
+
+                                                    <div class="ContenutoSettings">
+                                                        <form id="GeneralForm">
+                                                            <div>
+                                                                <label for="NomeUtente">Old Password</label>
+                                                                <input style="width:50%;" id="NomeUtente" type="text">
+                                                            </div>
+
+                                                            <div>
+                                                                <label for="NomeUtente">New Password</label>
+                                                                <input style="width:50%;" id="NomeUtente" type="text">
+                                                            </div>
+
+                                                            <div>
+                                                                <label for="EmailUtente">Confirm New Password</label>
+                                                                <input style="width:50%;" id="EmailUtente" type="text">
+                                                            </div>
+                                                            
+                                                            <input id="SaveButtonPassword" value="Salva" type="submit">
+                                                            <input id="ResetButtonPassword" value="Annulla" type="reset">
+                                                        </form>
+
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>   
+
+
+                                            
+                                            </div>
+                                        
+                                    </div>
+
+                                </div>
             </div>
         </div>
     </div>
