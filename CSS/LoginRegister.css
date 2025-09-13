@@ -1,0 +1,69 @@
+#LoginForm fieldset legend{
+    color:green;
+    transform: translateY(30px);
+    transition: 0.3s ease-in-out;
+    font-size: 16px;
+}
+#LoginForm fieldset{
+    border: 0;
+}
+#LoginForm fieldset input[type="text"]:is(#UsernameCredential):focus + legend{
+    transform: translateY(0px);
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+#LoginForm fieldset input[type="text"]:is(#PasswordCredential):focus + legend{
+    transform: translateY(0px);
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+#LoginForm input[type="text"]{
+    border-top: 0;
+    border-left:0;
+    border-right:0;
+    background-color: transparent;
+    border-color: var(--SystemGray3);
+    width: 100%;
+}
+#LoginForm input[type="text"]:focus{
+    outline:none;
+}
+
+
+input[type="reset"],input[type="submit"]{
+    border-radius: 36px;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+    transition: width 0.5s ease;
+    text-transform: none;
+    width:100%;
+    height: 100%;
+}
+#LoginContainerInf{
+    position:absolute;
+    z-index:1;
+    backface-visibility: hidden;
+}
+
+#TEST:checked + #LoginContainer #LoginContainerInf{
+    transform: rotate3d(0,1,0,180deg);
+}
+#TEST:checked + #LoginContainer #RegisterContainerInf{
+    transform: rotate3d(0,1,0,0deg);
+}
+
+#LoginContainer:has(> #LoginContainerInf #RegisterDiv input[type="checkbox"]:checked) #LoginContainerInf{
+transform: rotate3d(0,1,0,180deg);
+}
+#LoginContainer:has(> #LoginContainerInf #RegisterDiv input[type="checkbox"]:checked) #RegisterContainerInf{
+transform: rotate3d(0,1,0,0deg);
+}
+#RegisterContainerInf{
+    z-index:0;
+    position:absolute;
+    transform: rotate3d(0,1,0,-180deg);
+    backface-visibility: hidden;
+}
+
+
