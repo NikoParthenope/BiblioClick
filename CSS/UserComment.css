@@ -1,0 +1,35 @@
+#UserComment{
+    border-top: 0;
+    border-left:0;
+    border-right:0;
+    border: 3px solid hsl(0,0%,100%,0.3);
+    background-color: hsl(0,0%,80%,0.3);
+    backdrop-filter: blur(2.5px);
+    border-radius: 36px;
+}
+
+.NameAndComment p,h5{
+    margin:0;
+    padding:0;
+}
+
+#ProfileCommentImage{
+    top: 0;
+    left: 8px;
+    position: absolute;
+    border-radius: 36px;
+    align-items: center;
+    width:50px;
+    height:50px;
+    z-index: 1;
+    transition: 0.5s;
+}
+.CommentNavBar:has(> #VisualizzaRisposte) :last-child{
+    background-color: red;
+}
+.CommentNavBar:has(> #VisualizzaRisposte:checked) + div :first-child{
+    display: none;
+}
+.CommentNavBar:has(> #VisualizzaRisposte2:is(#VisualizzaRisposte2):checked) + div :first-child{
+    display: none;
+}
