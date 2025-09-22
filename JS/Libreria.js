@@ -1,22 +1,24 @@
-class Indicator{
-    constructor(ElementsID,ElementsType,IndicatorObjectID,DefaultActiveObject){
+export class Indicator{
+    constructor(ElementsID,ElementsType,IndicatorObjectID,DefaultActiveObject,OffSetUdjustX, OffSetUdjustY){
         this.Elements = document.getElementById(ElementsID).querySelectorAll(ElementsType);
         this.Indicator = document.getElementById(IndicatorObjectID);
         this.ActiveObject = document.querySelector(DefaultActiveObject);
         this.RectActiveObject = this.ActiveObject.getBoundingClientRect();
         this.IndicatorPosition = this.Indicator.getBoundingClientRect();
+        this.OffSetUdjustX = OffSetUdjustX;
+        this.OffSetUdjustY = OffSetUdjustY;
     }
     SetOnActive(){
-        let offset = this.ActiveObject.x - this.IndicatorPosition.x;
-        let offsetY = this.ActiveObject.y - this.IndicatorPosition.y + 10;
+        let offset = this.ActiveObject.x - this.IndicatorPosition.x + this.OffSetUdjustX;
+        let offsetY = this.ActiveObject.y - this.IndicatorPosition.y + this.OffSetUdjustY;
         this.ActiveObject.style.transform = "translate("+offset+"px,"+offsetY+"px)";
     }
     HoverMouse(){
         this.Elements.forEach((Element) =>{
             Element.addEventListener("mouseover", () =>{
                 const ElementPos = Element.getBoundingClientRect();
-                let offset = ElementPos.x - this.IndicatorPosition.x;
-                let offsetY = ElementPos.y - this.IndicatorPosition.y + 10;
+                let offset = ElementPos.x - this.IndicatorPosition.x + this.OffSetUdjustX;
+                let offsetY = ElementPos.y - this.IndicatorPosition.y + this.OffSetUdjustY;
                 this.ActiveObject.style.backgroundColor = "transparent";
                 this.Indicator.style.visibility = "visible";
                 this.Indicator.style.transform = "translate("+offset+"px,"+offsetY+"px)";
@@ -27,8 +29,8 @@ class Indicator{
     NotHoverMouse(){
         this.Elements.forEach((Element) =>{
             Element.addEventListener("mouseout", () =>{
-            let offset = this.RectActiveObject.x - this.IndicatorPosition.x;
-            let offsetY = this.RectActiveObject.y - this.IndicatorPosition.y + 10;
+            let offset = this.RectActiveObject.x - this.IndicatorPosition.x + this.OffSetUdjustX;
+            let offsetY = this.RectActiveObject.y - this.IndicatorPosition.y+ this.OffSetUdjustY;
 
             this.Indicator .style.visibility = "hidden";
             this.Indicator .style.transform = "translate("+offset+"px,"+offsetY+"px)";
@@ -43,10 +45,3 @@ class Indicator{
 })
     }
 }
-const IndicatorCalendar = new Indicator("CalendarDaysID","div","IndicatorePagina",".Active");
-IndicatorCalendar.HoverMouse();
-IndicatorCalendar.NotHoverMouse();
-
-addEventListener("DOMContentLoaded", () =>{
-    IndicatorCalendar.SetOnActive();
-})
