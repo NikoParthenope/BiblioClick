@@ -40,31 +40,44 @@
 
         <div id="RegisterContainerInf" class="InformationContainer ElementContentColumn" style="width: 30%;height: 60%;">
             <h3 style="position:absolute; top:10px;">Register</h3>
-            <form id="LoginForm" style="width:85%;">
+            <form id="RegisterForm" style="width:85%;">
             <fieldset>
                 
-                <input type="text" id="UsernameCredential">
-                <legend>BELLO</legend>
+                <input type="text" id="UsernameCredential" name="Nome">
+                <legend>Nome</legend>
             </fieldset>
             <fieldset>
                 
-                <input type="text" id="PasswordCredential">
+                <input type="text" id="PasswordCredential" name="Cognome">
+                <legend>Cognome</legend>
+            </fieldset>
+                        <fieldset>
+                
+                <input type="text" id="PasswordCredential" name="Username">
+                <legend>Username</legend>
+            </fieldset>
+                        <fieldset>
+                
+                <input type="email" id="PasswordCredential" name="Email">
+                <legend>Email</legend>
+            </fieldset>
+                                    <fieldset>
+                
+                <input type="password" id="PasswordCredential" name="Password" required>
                 <legend>Password</legend>
             </fieldset>
-            <div class="ElementContentRow" style="justify-content: flex-end;height:auto;margin:20px;">
-                <a href="ninete">Forgot Password?</a>
-            </div>
-            <div style="display:flex; justify-content:center;align-items:center;height:25%;">
-                <input type="submit">
+
+            <div style="display:flex; justify-content:center;align-items:center;height:15%;">
+                <input type="submit" id="TastoRegistrazione">
             </div>
             </form>
-            <div style="display:flex; align-items:center;justify-content:center;position:absolute; bottom:20px;">
+            <div style="display:flex; align-items:center;justify-content:center;position:absolute; bottom:1px;">
                 <label for="RegisterSwitcher">Annulla</label>
             </div>
 
 
     </div>
     </div>
-
+    <script src="JS/LogRegPage.js"></script>
 </body>
 </html>

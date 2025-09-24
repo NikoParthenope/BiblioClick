@@ -45,3 +45,46 @@ export class Indicator{
 })
     }
 }
+
+export class User{
+    #id_user = null;
+    #username = null;
+    #email = null;
+    #password = null;
+    #nome = null;
+    #cognome = null;
+    #data_reg = null;
+    constructor(){
+        this.isLoggined = false;
+    }
+
+}
+
+export class Membership{
+    #id_user = null;
+    #id_club = null;
+}
+
+export class Club{
+    #id_club = null;
+    #nomeclub = null;
+    #numeropartecipantimax = null;
+    #linguaclub = null;
+    #frequenzadiscussioni = null;
+    #tematicaClub = null;
+}
+
+export class Eventi{
+    #id_club = null;
+    #nomeevento = null;
+    #id_evento = null;
+    #data_evento = null;
+    #id_discussione = null;
+}
+
+export class Commenti{
+    #id_commento = null;
+    #testoCommento = null;
+    #username = null;
+    #id_risposta = null;
+}

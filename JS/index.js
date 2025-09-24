@@ -7,3 +7,7 @@ IndicatorPagination.NotHoverMouse();
 addEventListener("DOMContentLoaded", () =>{
     IndicatorPagination.SetOnActive();
 })
+
+document.getElementById("Content").querySelector("button").addEventListener("click", () =>{
+    window.location.href = "LogRegPage.html";
+});
