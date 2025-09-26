@@ -151,19 +151,42 @@ export class Pagination{
 
 }
 export class User{
-    #id_user = null;
-    #username = null;
-    #email = null;
-    #password = null;
-    #nome = null;
-    #cognome = null;
-    #data_reg = null;
-    constructor(){
-        this.isLoggined = false;
+
+    constructor(id_user,username,email,password,nome,cognome,data_reg){
+        this.id_user = id_user;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.data_reg = data_reg;
     }
 
 }
+export function login(){
+        const Menu = document.getElementById("Content");
+        Menu.innerHTML = "";
+        const bottoneProfilo = document.createElement("button");
+        bottoneProfilo.textContent = "Profilo";
+        bottoneProfilo.id = "ProfiloButton";
+        const bottoneLogout = document.createElement("button");
+        bottoneLogout.textContent = "Logout";
+        bottoneLogout.id="LogoutButton";
 
+        Menu.appendChild(bottoneProfilo);
+        Menu.appendChild(bottoneLogout);
+    
+}
+export function logout(){
+        console.log("test");
+        const Menu = document.getElementById("Content");
+        Menu.innerHTML = "";
+        localStorage.removeItem("Utente");
+        const bottoneLogin = document.createElement("button");
+        bottoneLogin.textContent = "Login";
+        bottoneLogin.id = "LoginButton";
+        window.location.reload();
+}
 export class Membership{
     #id_user = null;
     #id_club = null;

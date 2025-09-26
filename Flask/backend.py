@@ -23,6 +23,20 @@ def main1():
     DB.commit()
     return jsonify({"username":"T'APPOST"})
 
+@app.route('/Login', methods=["POST"])
+def main2():
+    dbcursor = DB.cursor()
+    sql = "SELECT * FROM User WHERE username= %s AND password= %s"
+    valori = (request.form.get("Username"),request.form.get("Password"))
+    dbcursor.execute(sql,valori)
+    row = dbcursor.fetchall()
+    dbcursor.close()
+    print(row)
+    if (row):
+        return jsonify({"msg":"OK", "informazioni": row})
+    else:
+        return jsonify({"msg":"Fail"})
+
 #cercare tutti i libri compreso di filtri
 @app.route('/Search', methods=['GET'])
 def main3():

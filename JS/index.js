@@ -1,4 +1,4 @@
-import { Indicator, Pagination } from "./Libreria.js";
+import { Indicator, Pagination, login , logout} from "./Libreria.js";
 
 
 const url_s = document.getElementById("FormSearch");
@@ -6,9 +6,21 @@ let risultatoRicerca = [];
 
 
 addEventListener("DOMContentLoaded", () => {
+    if(JSON.parse(localStorage.getItem("Utente"))){
+        console.log("Utente LOggato");
+        login();
+        document.getElementById("LogoutButton").addEventListener("click", () =>{
+            logout();
+            
+        })
+        document.getElementById("ProfiloButton").addEventListener("click", () =>{
+            window.location.href = "UserPage.html";
+            
+        })
+    }
 })
 
-document.getElementById("Content").querySelector("button").addEventListener("click", () => {
+document.getElementById("LoginButton").addEventListener("click", () => {
     window.location.href = "LogRegPage.html";
 });
 

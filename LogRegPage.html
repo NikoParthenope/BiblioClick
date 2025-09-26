@@ -15,19 +15,19 @@
             <form id="LoginForm" style="width:85%;">
             <fieldset>
                 
-                <input type="text" id="UsernameCredential">
-                <legend>BELLO</legend>
+                <input type="text" id="UsernameCredential" name="Username">
+                <legend>Username</legend>
             </fieldset>
             <fieldset>
                 
-                <input type="text" id="PasswordCredential">
+                <input type="text" id="PasswordCredential" name="Password">
                 <legend>Password</legend>
             </fieldset>
             <div class="ElementContentRow" style="justify-content: flex-end;height:auto;margin:20px;">
-                <a href="ninete">Forgot Password?</a>
+                <a>Forgot Password?</a>
             </div>
             <div style="display:flex; justify-content:center;align-items:center;height:25%;">
-                <input type="submit">
+                <input type="submit" value="Login">
             </div>
             </form>
             <div id="RegisterDiv" style="display:flex; align-items:center;justify-content:center;position:absolute; bottom:20px;">
@@ -68,7 +68,7 @@
             </fieldset>
 
             <div style="display:flex; justify-content:center;align-items:center;height:15%;">
-                <input type="submit" id="TastoRegistrazione">
+                <input type="submit" id="TastoRegistrazione" value="Registra">
             </div>
             </form>
             <div style="display:flex; align-items:center;justify-content:center;position:absolute; bottom:1px;">
@@ -78,6 +78,6 @@
 
     </div>
     </div>
-    <script src="JS/LogRegPage.js"></script>
+    <script type="module" src="./JS/LogRegPage.js"></script>
 </body>
 </html>
