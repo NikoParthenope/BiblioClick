@@ -36,6 +36,51 @@ def main2():
         return jsonify({"msg":"OK", "informazioni": row})
     else:
         return jsonify({"msg":"Fail"})
+@app.route('/UpdateUser', methods=["POST"])
+def update(): 
+    
+    nome = request.form.get("nome")
+    cognome = request.form.get("cognome")
+    email = request.form.get("email")
+    password = request.form.get("password")
+    id_user = request.form.get("IdUtente")
+    dbcursor = DB.cursor()
+    if nome != "":
+        query = "UPDATE User SET nome = %s WHERE id_user =%s AND password = %s"
+        valori = (nome,id_user,password)
+        dbcursor.execute(query, valori)
+
+    if cognome != "":
+        query = "UPDATE User SET cognome = %s WHERE id_user =%s AND password = %s"
+        valori = (cognome,id_user,password)
+        dbcursor.execute(query, valori)
+
+    if email != "":
+        query = "UPDATE User SET email = %s WHERE id_user =%s AND password = %s"
+        valori = (email,id_user,password)
+        dbcursor.execute(query, valori)
+    dbcursor.close()
+    DB.commit()
+    return jsonify({"msg":"ok"})
+
+@app.route('/updateUserPassword', methods=["POST"])
+def updatePassowrd():
+    oldpassword = request.form.get("OldPassword")
+    newpassword = request.form.get("NewPassword")
+    ConfirmPassword = request.form.get("ConfirmPassword")
+    id_user = request.form.get("IdUtente")
+    query = "UPDATE User SET password = %s WHERE id_user =%s"
+    dbcursor = DB.cursor()
+    valori = (newpassword,id_user)
+    if(newpassword == ConfirmPassword):
+        dbcursor.execute(query,valori)
+        dbcursor.close()
+        DB.commit()
+        return jsonify({"msg":"APPOST"})
+    else:
+        dbcursor.close()
+        return jsonify({"msg":"NOT APPOST"})
+
 
 #cercare tutti i libri compreso di filtri
 @app.route('/Search', methods=['GET'])

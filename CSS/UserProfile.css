@@ -108,11 +108,11 @@ body{
     display: none;
 }
 
-#GeneralForm label{
+#GeneralForm label, #GeneralFormPassword label{
     margin-top: 25px;
     padding:0;
 }
-#GeneralForm div input[type="text"]{
+#GeneralForm div input[type="text"],#GeneralFormPassword div input[type="text"]{
     border: none;
     width: 15vw;
     height: 6vh;

@@ -17,7 +17,7 @@
                 <label for="Security">I miei dati</label>
             </div>
             <div class="LowerTab">
-                <button>Logout</button>
+                <button id="LogoutButton">Logout</button>
             </div>
         </div>
         <div class="Content">
@@ -97,7 +97,7 @@
             <div id="SecurityContent" class="ContenutoTab">
                                 <div class="InformationContainer ElementContentColumn" style="width: 90%;height: 90%;justify-content: center;">
                                     <div class="ElementContentRow" style="width:100%;text-align: center;display:block; height: 100%;"> 
-                                        <h1>Miei Club</h1>
+                                        <h1 id="ScrittaBenvenuto">Miei Club</h1>
                                         <div class="ElementContentColumn" style="height:auto;">
                                             <div class="ImmagineProfilo"></div>
                                         </div>
@@ -112,22 +112,25 @@
                                                             <div class="ElementContentRow" style="width:100%;">
                                                             <div style="width:100%;">
                                                                 <label for="NomeUtente">Nome</label>
-                                                                <input id="NomeUtente" type="text">
+                                                                <input id="NomeUtente" type="text" name="nome">
                                                             </div>
 
                                                             <div style="width:100%;">
-                                                                <label for="NomeUtente">Cognome</label>
-                                                                <input id="NomeUtente" type="text">
+                                                                <label for="CognomeUtente">Cognome</label>
+                                                                <input id="CognomeUtente" type="text" name="cognome">
                                                             </div>
 
                                                             <div style="width:100%;">
                                                                 <label for="EmailUtente">eMail</label>
-                                                                <input id="EmailUtente" type="text">
+                                                                <input id="EmailUtente" type="text" name="email">
                                                             </div>
                                                             </div>
-
-                                                                <input id="SaveButtonPassword" value="Salva" type="submit">
-                                                                <input id="ResetButtonPassword" value="Annulla" type="reset">
+                                                            <div id="DivConfermaPassword" style="visibility: hidden;">
+                                                                <label for="EmailUtente">Confirm New Password</label>
+                                                                <input style="width:50%;" id="ConfirmPasswordInput" type="text" name="password">
+                                                            </div>
+                                                                <input id="SaveButtonUser" value="Salva" type="submit" style="visibility: hidden;">
+                                                                <input id="ResetButtonUser" value="Annulla" type="reset">
                                                            
                                                         </form>
                                                     </div>
@@ -135,20 +138,20 @@
                                                     <label for="SettingsTabSicurezza">Sicurezza</label>
 
                                                     <div class="ContenutoSettings">
-                                                        <form id="GeneralForm">
+                                                        <form id="GeneralFormPassword">
                                                             <div>
-                                                                <label for="NomeUtente">Old Password</label>
-                                                                <input style="width:50%;" id="NomeUtente" type="text">
+                                                                <label for="OldPasswordInput">Old Password</label>
+                                                                <input style="width:50%;" id="OldPasswordInput" type="text" name="OldPassword">
                                                             </div>
 
                                                             <div>
-                                                                <label for="NomeUtente">New Password</label>
-                                                                <input style="width:50%;" id="NomeUtente" type="text">
+                                                                <label for="NewPasswordInput">New Password</label>
+                                                                <input style="width:50%;" id="NewPasswordInput" type="text" name="NewPassword">
                                                             </div>
 
                                                             <div>
-                                                                <label for="EmailUtente">Confirm New Password</label>
-                                                                <input style="width:50%;" id="EmailUtente" type="text">
+                                                                <label for="ConfirmPasswordInput">Confirm New Password</label>
+                                                                <input style="width:50%;" id="ConfirmPasswordInput" type="text" name="ConfirmPassword">
                                                             </div>
                                                             
                                                             <input id="SaveButtonPassword" value="Salva" type="submit">
@@ -171,5 +174,6 @@
             </div>
         </div>
     </div>
+    <script type="module" src="./JS/UserPage.js"></script>
 </body>
 </html>
