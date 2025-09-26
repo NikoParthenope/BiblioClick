@@ -1,23 +1,23 @@
-#LoginForm,#RegisterForm fieldset legend{
+#LoginForm fieldset legend,#RegisterForm fieldset legend{
     color:green;
     transform: translateY(30px);
     transition: 0.3s ease-in-out;
     font-size: 16px;
 }
-#LoginForm,#RegisterForm fieldset{
+#LoginForm fieldset, #RegisterForm fieldset{
     border: 0;
 }
-#LoginForm,#RegisterForm fieldset input[type="text"]:is(#UsernameCredential):focus + legend{
+#LoginForm fieldset input[type="text"]:is(#UsernameCredential):focus + legend,#RegisterForm fieldset input[type="text"]:is(#UsernameCredential):focus + legend{
     transform: translateY(0px);
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-#LoginForm,#RegisterForm fieldset input[type="text"]:is(#PasswordCredential):focus + legend{
+#LoginForm fieldset input[type="text"]:is(#PasswordCredential):focus + legend,#RegisterForm fieldset input[type="text"]:is(#PasswordCredential):focus + legend{
     transform: translateY(0px);
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-#LoginForm,#RegisterForm input[type="text"]{
+#LoginForm input[type="text"],#RegisterForm input[type="text"]{
     border-top: 0;
     border-left:0;
     border-right:0;
@@ -25,22 +25,22 @@
     border-color: var(--SystemGray3);
     width: 100%;
 }
-#LoginForm,#RegisterForm input[type="text"]:focus{
+#LoginForm input[type="text"]:focus,#RegisterForm input[type="text"]:focus{
     outline:none;
 }
 
 
-#LoginForm,#RegisterForm fieldset input[type="email"]:is(#UsernameCredential):focus + legend{
+#LoginForm fieldset input[type="email"]:is(#UsernameCredential):focus + legend,#RegisterForm fieldset input[type="email"]:is(#UsernameCredential):focus + legend{
     transform: translateY(0px);
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-#LoginForm,#RegisterForm fieldset input[type="email"]:is(#PasswordCredential):focus + legend{
+#LoginForm fieldset input[type="email"]:is(#PasswordCredential):focus + legend,#RegisterForm fieldset input[type="email"]:is(#PasswordCredential):focus + legend{
     transform: translateY(0px);
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-#LoginForm,#RegisterForm input[type="email"]{
+#LoginForm input[type="email"],#RegisterForm input[type="email"]{
     border-top: 0;
     border-left:0;
     border-right:0;
@@ -48,22 +48,22 @@
     border-color: var(--SystemGray3);
     width: 100%;
 }
-#LoginForm,#RegisterForm input[type="email"]:focus{
+#LoginForm input[type="email"]:focus,#RegisterForm input[type="email"]:focus{
     outline:none;
 }
 
 
-#LoginForm,#RegisterForm fieldset input[type="password"]:is(#UsernameCredential):focus + legend{
+#LoginForm fieldset input[type="password"]:is(#UsernameCredential):focus + legend,#RegisterForm fieldset input[type="password"]:is(#UsernameCredential):focus + legend{
     transform: translateY(0px);
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-#LoginForm,#RegisterForm fieldset input[type="password"]:is(#PasswordCredential):focus + legend{
+#LoginForm fieldset input[type="password"]:is(#PasswordCredential):focus + legend,#RegisterForm fieldset input[type="password"]:is(#PasswordCredential):focus + legend{
     transform: translateY(0px);
     font-size: 14px;
     transition: 0.3s ease-in-out;
 }
-#LoginForm,#RegisterForm input[type="password"]{
+#LoginForm input[type="password"],#RegisterForm input[type="password"]{
     border-top: 0;
     border-left:0;
     border-right:0;
@@ -71,7 +71,7 @@
     border-color: var(--SystemGray3);
     width: 100%;
 }
-#LoginForm,#RegisterForm input[type="password"]:focus{
+#LoginForm input[type="password"]:focus,#RegisterForm input[type="password"]:focus{
     outline:none;
 }
 
