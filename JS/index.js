@@ -33,6 +33,7 @@ url_s.addEventListener("submit", (event) => {
             document.getElementById("ClubSearchContainer").innerHTML = '';
             risultatoRicerca = data;
             const pag = new Pagination(data);
+            pag.setPagine();
             pag.render();
             let IndicatorPagination = new Indicator("NumericButtonID", "button", "IndicatorPagin", ".Active", 0, -10);
             IndicatorPagination.HoverMouse();

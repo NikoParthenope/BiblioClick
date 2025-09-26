@@ -45,89 +45,51 @@ export class Indicator{
 })
     }
 }
-export function CreateCardClub(Clubs){
-    Clubs.forEach(Club =>{
-                let Card = document.createElement("div");
-                Card.classList.add("Card");
-                let FirstDiv = document.createElement("div");
-                FirstDiv.classList.add("ElementContentColumn");
-                let SecondDiv = document.createElement("div");
-                FirstDiv.classList.add("ElementContentRow");
-                let ThirdDiv = document.createElement("div");
-                FirstDiv.classList.add("ElementContentRow");
-                let firstP = document.createElement("p");
-                firstP.style.position = "absolute";
-                firstP.style.top = "0";
-                firstP.style.left="2vw";
-                firstP.textContent = Club.linguaclub;
-                let FourthDiv = document.createElement("div");
-                FirstDiv.classList.add("ElementContentRow");
-                let secondP = document.createElement("p");
-                secondP.style.top = "0";
-                secondP.innerHTML = '&#9728';
-                secondP.style.fontSize = "100px";
-                secondP.style.margin = "0";
-                let FifthDiv = document.createElement("div");
-                FirstDiv.classList.add("ElementContentRow");
-                let thirdP = document.createElement("p");
-                thirdP.style.position = "absolute";
-                thirdP.style.top = "0";
-                thirdP.style.right="2vw";
-                thirdP.innerHTML = '12/'+Club.numeropartecipantimax+'&#128110';
-                let SixthDiv = document.createElement("div");
-                SixthDiv.classList.add("ElementContentColumn");
-                let header = document.createElement("h1");
-                header.style.margin = "0";
-                header.style.padding = "0";
-                header.textContent = Club.nomeclub;
-                let fourthP = document.createElement("p");
-                fourthP.style.margin = "0";
-                fourthP.style.padding = "0";
-                fourthP.textContent = "Paragrafo"
-                let buttoneaccesso = document.createElement("button");
-                buttoneaccesso.textContent = "Richiedi Accesso";
-                
-                Card.appendChild(FirstDiv);
-                FirstDiv.appendChild(SecondDiv);
-                SecondDiv.appendChild(ThirdDiv);
-                ThirdDiv.appendChild(firstP);
-                SecondDiv.appendChild(FourthDiv);
-                FourthDiv.appendChild(secondP);
-                SecondDiv.appendChild(FifthDiv);
-                FifthDiv.appendChild(thirdP);
-                FirstDiv.appendChild(SixthDiv);
-                SixthDiv.appendChild(header);
-                SixthDiv.appendChild(fourthP);
-                SixthDiv.appendChild(buttoneaccesso);
-                document.getElementById("ClubSearchContainer").appendChild(Card);
-    })
-}
+
 export class Pagination{
     constructor(Element){
         this.Card = Element;
         this.numberOfElement = 6;
-        this.CurrentElement = 1;
+        this.CurrentElement = 0;
         this.Pages = Math.round(Object.keys(Element).length / this.numberOfElement)+1;
-        this.NumberOfElements = Object.keys(Element).length
+        this.NumberOfElements = Object.keys(Element).length;
+        this.Array = [];
     }
 
-    render(){
+    render(pagina = 0){
         this.renderButton();
-        this.renderCard();
+        this.renderCard(pagina);
     } 
-    renderCard(){
-        const contenitore = document.getElementById("ClubSearchContainer");
-        CreateCardClub(this.Card);
-        console.log(this.NumberOfElements);
-        if(this.NumberOfElements < 6){
-            for(let i = 0; i < (6-this.NumberOfElements); i++){
-                console.log("test");
-                const emptyCard = document.createElement("div");
-                emptyCard.classList.add("Card");
-                emptyCard.innerHTML = 'c';
-                emptyCard.style.visibility = "hidden";
-                contenitore.appendChild(emptyCard);
+    setPagine(){
+        let n = 0;
+        let nn = 6;
+        let tempArray = [];
+
+        this.Card.forEach(Club =>{
+            tempArray.push(new ClubClass(Club.frequenzadiscussioni, Club.id_club, Club.linguaclub, Club.nomeclub, Club.numeropartecipantimax,Club.tematicaclub));      
+        })
+
+        //Crea le pagine al fine di inserire i club
+        for(let i = 0; i < this.Pages; i++){
+            let tempPagina = []
+            tempPagina = tempArray.slice(n,nn); 
+            this.Array.push(tempPagina);
+            n+=6;
+            nn+=6;
+        }
+        //Aggiunge le card invisibili mancanti per arrivare a 6
+        if(this.Array[this.Pages-1].length < 6){
+            let elementimancanti = 6 - this.Array[this.Pages-1].length;
+            for(let i = 0; i < elementimancanti; i++){
+                this.Array[this.Pages-1].push(new EmptyClubClass());
             }
+        }
+    }
+    renderCard(pagina){
+        const contenitore = document.getElementById("ClubSearchContainer");
+        contenitore.innerHTML = '';
+        for(let i = 0; i < 6; i++){
+            this.Array[pagina][i].render();
         }
     }
     renderButton(){
@@ -148,11 +110,27 @@ export class Pagination{
         
         const buttonBack = document.createElement("button");
         buttonBack.textContent = '<';
+        buttonBack.addEventListener("click", () => {
+                if(this.CurrentElement > 0){
+                    this.CurrentElement -=1;
+                    this.renderCard(this.CurrentElement);
+                    
+                    
+                }
+            })
         NumericButton.appendChild(buttonBack);
         for(let i = 1; i < this.Pages+1; i++){
             const buttone = document.createElement("button");
             buttone.id="ButtoneN"+i;
             buttone.textContent = i;
+            buttone.addEventListener("click", (event) => {
+                const idbottone = i-1;
+                this.CurrentElement = idbottone;
+                this.renderCard(idbottone);
+                document.querySelector(".Active").classList.remove("Active");
+                event.currentTarget.classList.add("Active");
+                
+            })
             if(i === 1){
                 buttone.classList.add("Active");
             }
@@ -161,6 +139,13 @@ export class Pagination{
         }
         const buttonNext = document.createElement("button");
         buttonNext.textContent = '>';
+        buttonNext.addEventListener("click", () => {
+
+                if(this.CurrentElement < this.Pages-1){
+                    this.CurrentElement +=1;
+                    this.renderCard(this.CurrentElement);
+                }
+            })
         NumericButton.appendChild(buttonNext);
     }
 
@@ -183,14 +168,86 @@ export class Membership{
     #id_user = null;
     #id_club = null;
 }
+export class EmptyClubClass{
+        render(){
+            const contenitore = document.getElementById("ClubSearchContainer");
+            const emptyCard = document.createElement("div");
+            emptyCard.classList.add("Card");
+            emptyCard.innerHTML = 'c';
+            emptyCard.style.visibility = "hidden";
+            contenitore.appendChild(emptyCard);
+        }
+}
+export class ClubClass{
+    constructor(frequenzadiscussioni, id_club, linguaclub, nomeclub, numeropartecipantimax,tematicaclub){
+        this.id_club = id_club;
+        this.frequenzadiscussioni = frequenzadiscussioni;
+        this.nomeclub = nomeclub;
+        this.tematicaClub = tematicaclub;
+        this.linguaclub = linguaclub;
+        this.numeropartecipantimax = numeropartecipantimax;
+    }
 
-export class Club{
-    #id_club = null;
-    #nomeclub = null;
-    #numeropartecipantimax = null;
-    #linguaclub = null;
-    #frequenzadiscussioni = null;
-    #tematicaClub = null;
+    render(){
+                let Card = document.createElement("div");
+                Card.classList.add("Card");
+                let FirstDiv = document.createElement("div");
+                FirstDiv.classList.add("ElementContentColumn");
+                let SecondDiv = document.createElement("div");
+                FirstDiv.classList.add("ElementContentRow");
+                let ThirdDiv = document.createElement("div");
+                FirstDiv.classList.add("ElementContentRow");
+                let firstP = document.createElement("p");
+                firstP.style.position = "absolute";
+                firstP.style.top = "0";
+                firstP.style.left="2vw";
+                firstP.textContent = this.linguaclub;
+                let FourthDiv = document.createElement("div");
+                FirstDiv.classList.add("ElementContentRow");
+                let secondP = document.createElement("p");
+                secondP.style.top = "0";
+                secondP.innerHTML = '&#9728';
+                secondP.style.fontSize = "100px";
+                secondP.style.margin = "0";
+                let FifthDiv = document.createElement("div");
+                FirstDiv.classList.add("ElementContentRow");
+                let thirdP = document.createElement("p");
+                thirdP.style.position = "absolute";
+                thirdP.style.top = "0";
+                thirdP.style.right="2vw";
+                thirdP.innerHTML = '12/'+this.numeropartecipantimax+'&#128110';
+                let SixthDiv = document.createElement("div");
+                SixthDiv.classList.add("ElementContentColumn");
+                let header = document.createElement("h1");
+                header.style.margin = "0";
+                header.style.padding = "0";
+                header.textContent = this.nomeclub;
+                let fourthP = document.createElement("p");
+                fourthP.style.margin = "0";
+                fourthP.style.padding = "0";
+                fourthP.textContent = "Paragrafo"
+                let buttoneaccesso = document.createElement("button");
+                buttoneaccesso.textContent = "Richiedi Accesso";
+                buttoneaccesso.addEventListener("click", () =>{
+                    const urlcorrente = new URL("BookClubPage.html", window.location.origin);
+                    urlcorrente.searchParams.append("idClub", this.id_club);
+                    window.location.href = urlcorrente;
+                })
+                
+                Card.appendChild(FirstDiv);
+                FirstDiv.appendChild(SecondDiv);
+                SecondDiv.appendChild(ThirdDiv);
+                ThirdDiv.appendChild(firstP);
+                SecondDiv.appendChild(FourthDiv);
+                FourthDiv.appendChild(secondP);
+                SecondDiv.appendChild(FifthDiv);
+                FifthDiv.appendChild(thirdP);
+                FirstDiv.appendChild(SixthDiv);
+                SixthDiv.appendChild(header);
+                SixthDiv.appendChild(fourthP);
+                SixthDiv.appendChild(buttoneaccesso);
+                document.getElementById("ClubSearchContainer").appendChild(Card);
+    }
 }
 
 export class Eventi{
