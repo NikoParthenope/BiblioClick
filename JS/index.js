@@ -1,18 +1,17 @@
-import { Indicator } from "./Libreria.js";
+import { Indicator, Pagination } from "./Libreria.js";
 
-const IndicatorPagination = new Indicator("NumericButtonID", "button", "IndicatorPagin", ".Active", 0, -10);
-IndicatorPagination.HoverMouse();
-IndicatorPagination.NotHoverMouse();
+
+const url_s = document.getElementById("FormSearch");
+let risultatoRicerca = [];
+
 
 addEventListener("DOMContentLoaded", () => {
-    IndicatorPagination.SetOnActive();
 })
 
 document.getElementById("Content").querySelector("button").addEventListener("click", () => {
     window.location.href = "LogRegPage.html";
 });
 
-const url_s = document.getElementById("FormSearch");
 url_s.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -31,9 +30,15 @@ url_s.addEventListener("submit", (event) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log("Risultato:", data);
+            document.getElementById("ClubSearchContainer").innerHTML = '';
+            risultatoRicerca = data;
+            const pag = new Pagination(data);
+            pag.render();
+            let IndicatorPagination = new Indicator("NumericButtonID", "button", "IndicatorPagin", ".Active", 0, -10);
+            IndicatorPagination.HoverMouse();
+            IndicatorPagination.NotHoverMouse();
+            IndicatorPagination.SetOnActive();
         })
         .catch(err => console.error("Errore:", err));
 
 })
-
