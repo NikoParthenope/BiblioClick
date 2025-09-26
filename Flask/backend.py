@@ -125,6 +125,30 @@ def main3():
     return jsonify(results)
 
 
+@app.route('/CreateClub', methods=['POST'])
+def main7():
+
+    nome = request.form.get("nomeClub")
+    lingua = request.form.get("linguaClub")
+    frequenza = request.form.get("frequenzaDiscussioni")
+    tema = request.form.get("tematicaClub")
+    max_membri = request.form.get("numeroPartecipantiMax")
+    id_utente=request.form.get("id_utente")
+
+    query = "INSERT INTO Club (nomeclub, tematicaclub, numeropartecipantimax, linguaclub, frequenzadiscussioni,id_admin) VALUES (%s, %s, %s, %s, %s, %s)"
+    params = (nome, tema, max_membri, lingua, frequenza,id_utente)
+
+    cursor = DB.cursor(dictionary=True)
+    cursor.execute(query, params)
+    rows = cursor.rowcount
+    DB.commit()
+    cursor.close()
+
+    if (rows):
+        return jsonify({"msg":"Successfull Created Club"})
+    else:
+        return jsonify({"msg":"Failed Created Club"})
+
 
 
 

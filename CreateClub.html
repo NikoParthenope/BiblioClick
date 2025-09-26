@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <link rel="stylesheet" href="CSS/variables.css">
+</head>
+
+<body
+    style="margin:0; padding:0; display:flex; justify-content:center; align-items:center; min-height:100vh; text-align:center;">
+
+    <div class="InformationContainer" style="padding:30px; max-width:500px; width:90%;">
+        <h1 style="margin-bottom:10px;">Crea il tuo Club</h1>
+        <p class="subtitle" style="margin-bottom:20px;">Compila il form per registrare un nuovo club</p>
+
+        <form id="CreateClubForm" style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+            <div class="form-group" style="width:100%;">
+                <label for="nomeClub">Nome del Club</label>
+                <br>
+                <input type="text" id="nomeClub" name="nomeClub" placeholder="Inserisci il nome del club" required
+                    style="width:90%;">
+            </div>
+
+            <div class="form-group" style="width:100%;">
+                <label for="linguaClub">Lingua del Club</label>
+                <br>
+                <select id="linguaClub" name="linguaClub" required style="width:90%;">
+                    <option value="Italiano">Italiano</option>
+                    <option value="Inglese">Inglese</option>
+                    <option value="Spagnolo">Spagnolo</option>
+                    <option value="Francese">Francese</option>
+                    <option value="Tedesco">Tedesco</option>
+                    <option value="Portoghese">Portoghese</option>
+                    <option value="Cinese">Cinese</option>
+                    <option value="Giapponese">Giapponese</option>
+                    <option value="Russo">Russo</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="width:100%;">
+                <label for="frequenzaDiscussioni">Frequenza Discussioni</label>
+                <br>
+                <select id="frequenzaDiscussioni" name="frequenzaDiscussioni" required style="width:90%;">
+                    <option value="Quotidiana">Quotidiana</option>
+                    <option value="Bisettimanale">Due volte a settimana</option>
+                    <option value="Settimanale">Settimanale</option>
+                    <option value="Quindicinale">Ogni due settimane</option>
+                    <option value="Mensile">Mensile</option>
+                    <option value="Bimestrale">Bimestrale</option>
+                    <option value="Trimestrale">Trimestrale</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="width:100%;">
+                <label for="tematicaClub">Tematica del Club</label>
+                <br>
+                <select id="tematicaClub" name="tematicaClub" required style="width:90%;">
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Gialli">Gialli</option>
+                    <option value="Narrativa">Narrativa</option>
+                    <option value="Fantascienza">Fantascienza</option>
+                    <option value="Storia">Storia</option>
+                    <option value="Manga">Manga</option>
+                    <option value="Poesia">Poesia</option>
+                    <option value="Romantico">Romantico</option>
+                    <option value="Classici">Classici</option>
+                    <option value="Thriller">Thriller</option>
+
+                </select>
+            </div>
+
+            <div class="form-group" style="width:100%;">
+                <label for="numeroPartecipantiMax">Numero Massimo Partecipanti</label>
+                <br>
+                <input type="number" id="numeroPartecipantiMax" name="numeroPartecipantiMax" min="1" max="50"
+                    placeholder="Es: 20" required style="width:90%;">
+                <small>Minimo 2, massimo 50 partecipanti</small>
+            </div>
+
+            <button type="submit" style="width:90%; margin-top:10px;">
+                Crea Club
+            </button>
+        </form>
+    </div>
+    <script src="JS/CreateClub.js"></script>
+</body>
+
+</html>

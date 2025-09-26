@@ -24,6 +24,9 @@ document.getElementById("LoginButton").addEventListener("click", () => {
     window.location.href = "LogRegPage.html";
 });
 
+document.getElementById("CreateClubButton").addEventListener("click", () => {
+    window.location.href = "CreateClub.html";
+});
 url_s.addEventListener("submit", (event) => {
     event.preventDefault();
 
