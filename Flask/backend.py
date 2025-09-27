@@ -29,13 +29,26 @@ def main2():
     sql = "SELECT * FROM User WHERE username= %s AND password= %s"
     valori = (request.form.get("Username"),request.form.get("Password"))
     dbcursor.execute(sql,valori)
-    row = dbcursor.fetchall()
+    row = dbcursor.fetchone()
     dbcursor.close()
-    print(row)
     if (row):
-        return jsonify({"msg":"OK", "informazioni": row})
+        return jsonify({"msg":"OK"})
     else:
         return jsonify({"msg":"Fail"})
+    
+@app.route('/myClub', methods=["GET"])
+def myClub():
+    dbcursor = DB.cursor()
+    sql = "SELECT nomeclub,c.id_club FROM User a JOIN Membership b ON a.id_user = b.id_user JOIN Club c ON b.id_club = c.id_club  WHERE a.id_user = %s;"
+    valori = (request.args.get("idUser"),)
+    dbcursor.execute(sql,valori)
+    row = dbcursor.fetchall()
+    dbcursor.close()
+    print(request.args.get("idUser"))
+    if (row):
+        return jsonify({"msg": row})
+    else:
+        return jsonify({"msg":"Errore"})
 @app.route('/UpdateUser', methods=["POST"])
 def update(): 
     
@@ -157,16 +170,39 @@ def main7():
 #cercare i dettagli del club selezionato
 @app.route('/ClubDetails', methods=['GET'])
 def main4():
-    return jsonify({"username":"admin"})
-#visualizzare tutti gli eventi di quel utente
-@app.route('/UserCalendar', methods=['GET'])
-def main5():
-    return jsonify({"username":"admin"})
-#visualizzare tutti i commenti di un club
-@app.route('/Comment', methods=['GET'])
-def main6():
-    return jsonify({"username":"admin"})
+    id = request.args.get("idClub")
+    id_user = request.args.get("idUser")
+    dbcursor = DB.cursor()
+    query = "SELECT * FROM Eventi WHERE id_club = %s"
+    valori = (id,)
+    dbcursor.execute(query,valori)
+    row = dbcursor.fetchall()
+    query = "SELECT * FROM Club WHERE id_club = %s"
+    dbcursor.execute(query,valori)
+    clubinf = dbcursor.fetchone()
+    query = "SELECT * FROM Membership WHERE id_club = %s AND id_user = %s"
+    valori2 = (id,id_user)
+    dbcursor.execute(query,valori2)
+    reg = dbcursor.fetchone()
+    test = "No"
+    if(reg):
+        test = "Si"
+    print(test)
+    dbcursor.close()
+    return jsonify({"Dettagli":row,"clubinf":clubinf,"QueryReg":test})
 
+@app.route("/Iscrizione", methods=['GET'])
+def iscrizione():
+    id = request.args.get("idClub")
+    id_user = request.args.get("idUser")
+    print(id)
+    dbcursor = DB.cursor()
+    query = "INSERT INTO Membership VALUES (%s,%s)"
+    sql = (id_user,id)
+    dbcursor.execute(query,sql)
+    dbcursor.close()
+    DB.commit()
+    return jsonify({"Dettagli":"ok"})
 
 if __name__ == '__main__':
     app.run()

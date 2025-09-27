@@ -163,8 +163,10 @@ export class User {
     }
 
 }
-export function login() {
+export function createLoginVisible(){
     document.getElementById("CreateClubButton").style.visibility = "visible";
+}
+export function login() {
     const Menu = document.getElementById("Content");
     Menu.innerHTML = "";
     const bottoneProfilo = document.createElement("button");
@@ -252,7 +254,7 @@ export class ClubClass {
         fourthP.style.padding = "0";
         fourthP.textContent = "Paragrafo"
         let buttoneaccesso = document.createElement("button");
-        buttoneaccesso.textContent = "Richiedi Accesso";
+        buttoneaccesso.textContent = "Vedi";
         buttoneaccesso.addEventListener("click", () => {
             const urlcorrente = new URL("BookClubPage.html", window.location.origin);
             urlcorrente.searchParams.append("idClub", this.id_club);
@@ -288,4 +290,71 @@ export class Commenti {
     #testoCommento = null;
     #username = null;
     #id_risposta = null;
+}
+
+export class Calendario{
+    constructor(eventi,CalendarID = "CalendarDaysID"){
+        this.eventi = eventi;
+        this.mesecorrente = new Date();
+        this.CalendarID = CalendarID;
+    }
+
+    render(){
+        const DivCalendariogiorni = document.getElementById("CalendarDaysID");
+        for(let i = 1; i <= this.calcoloGiorniMese(); i++){
+            const giorno = document.createElement("div");
+            giorno.textContent = i;
+            DivCalendariogiorni.appendChild(giorno);
+            if(i === this.mesecorrente.getDate()){
+                console.log(this.mesecorrente.getDate());
+                giorno.classList.add("Active");
+            }   
+        }
+    }
+
+    calcoloGiorniMese(){
+        const mese = this.mesecorrente.getMonth()+1;
+        const DivCalendario = document.getElementById("NOOOOOOOOOOOO");
+        switch(mese){
+            case 1:
+                DivCalendario.textContent = "Gennario";
+                return 31;
+            case 2:
+                DivCalendario.textContent = "Febbraio";
+                return 28;
+            case 3:
+                DivCalendario.textContent = "Marzo";
+                return 31;
+            case 4:
+                DivCalendario.textContent = "Aprile";
+                return 30;
+            case 5:
+                DivCalendario.textContent = "Maggio";
+                return 31;
+            case 6:
+                DivCalendario.textContent = "Giugno";
+                return 30;
+            case 7:
+                DivCalendario.textContent = "Luglio";
+                return 31;
+            case 8:
+                DivCalendario.textContent = "Agosto";
+                return 31;
+            case 9:
+                DivCalendario.textContent = "Settembre";
+                return 30;   
+            case 10:
+                DivCalendario.textContent = "Ottobre";
+                return 31;
+            case 11:
+                DivCalendario.textContent = "Novembre";
+                return 30;
+            case 12:
+                DivCalendario.textContent = "Dicembre";
+                return 31;
+
+        }
+        
+    }
+
 }

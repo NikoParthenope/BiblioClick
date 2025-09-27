@@ -1,4 +1,4 @@
-import { Indicator, Pagination, login , logout} from "./Libreria.js";
+import { Indicator, Pagination, login , logout,createLoginVisible} from "./Libreria.js";
 
 
 const url_s = document.getElementById("FormSearch");
@@ -9,6 +9,7 @@ addEventListener("DOMContentLoaded", () => {
     if(JSON.parse(localStorage.getItem("Utente"))){
         console.log("Utente LOggato");
         login();
+        createLoginVisible()
         document.getElementById("LogoutButton").addEventListener("click", () =>{
             logout();
             

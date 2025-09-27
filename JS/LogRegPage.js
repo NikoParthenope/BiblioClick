@@ -41,6 +41,7 @@ LoginForm.addEventListener("submit", (event) =>{
     })
     .then(response => response.json())
     .then(MSG => {
+        console.log(MSG.msg);
         if(MSG.msg === "OK"){
             localStorage.setItem("Utente",JSON.stringify(new User(MSG.informazioni[0][0],MSG.informazioni[0][1],MSG.informazioni[0][2],MSG.informazioni[0][3],MSG.informazioni[0][4],MSG.informazioni[0][5],MSG.informazioni[0][6])));
             window.location.href = "index.html";

@@ -1,10 +1,15 @@
-import { logout} from "./Libreria.js";
-
+import { logout, Calendario, Indicator} from "./Libreria.js";
+const calendar = new Calendario([]);
 const scrittaBenvenuto = document.getElementById("ScrittaBenvenuto");
 const logoutButton = document.getElementById("LogoutButton");
 const formUtente = document.getElementById("GeneralForm");
 const formUtenteSecurity = document.getElementById("GeneralFormPassword");
 const inputform = formUtente.querySelectorAll("input[type='text']");
+const ParentMyclub = document.getElementById("ProfileMyClub");
+
+const IndicatorCalendar = new Indicator("CalendarDaysID","div","IndicatorePagina",".Active",0,0);
+IndicatorCalendar.HoverMouse();
+IndicatorCalendar.NotHoverMouse();
 
 document.addEventListener("DOMContentLoaded", () =>{
     scrittaBenvenuto.textContent = "Benvenuto," + " " + JSON.parse(localStorage.getItem("Utente")).username;
@@ -22,6 +27,30 @@ document.addEventListener("DOMContentLoaded", () =>{
         })
 
     }
+    const url = new URL('http://127.0.0.1:5000/myClub');
+    url.searchParams.append("idUser", JSON.parse(localStorage.getItem("Utente")).id_user);
+    console.log(url);
+    fetch(url)
+        .then(response => response.json())
+        .then(data =>{
+            if(data.msg === "Errore"){
+                console.log("KABOOM")
+            }else{
+                for(const t of data.msg){
+                    const club = document.createElement("button");
+                    club.textContent = t[0];
+                    club.addEventListener("click", () =>{
+                        const urlclub = new URL('BookClubPage.html',window.location.origin);
+                        urlclub.searchParams.append("idClub",t[1]);
+                        window.location.href = urlclub;
+                    })
+                    ParentMyclub.append(club);
+                }
+                
+            }
+        })
+    calendar.render();
+        IndicatorCalendar.SetOnActive();
 })
 
 formUtente.addEventListener("submit", (event) =>{
