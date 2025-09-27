@@ -48,7 +48,7 @@ function prendiEventi(){
 }
 
 
-
+/*Gestione Login/Logout*/
 document.addEventListener("DOMContentLoaded", () =>{
         if(JSON.parse(localStorage.getItem("Utente"))){
             console.log("Utente LOggato");
