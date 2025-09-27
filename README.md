@@ -34,9 +34,14 @@ In order to run the software in question, be sure to follow the following steps:
     mysql -u root -p <LatestDB/backup.sql
     ```
     
-3. **Python environment**
+3. **Python backend**
     
     ```bash
     pip install Flask Flask-Cors
     pip install mysql-connector-python
+    python3 Flask/backend.py
     ```
+    
+4. **Run**
+    
+    Open index.html with Live Server
