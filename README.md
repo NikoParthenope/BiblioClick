@@ -1,6 +1,4 @@
-# Untitled
-
-# Introduction
+# BIBLIOCLICK
 
 BiblioClick is a Web site designed for the management of virtual communities dedicated to reading. The system implements a user authentication flow and provides dedicated interfaces for the creation, administration and participation in book clubs, with support for discussion threads and customized user areas.
 
