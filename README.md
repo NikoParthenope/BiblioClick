@@ -31,7 +31,9 @@ In order to run the software in question, be sure to follow the following steps:
 2. **Loading MySQL Database**
     
     ```bash
-    mysql -u root -p <LatestDB/backup.sql
+    mysql -u root -p
+    create database BiblioClick
+    mysql -u root -p BiblioClick<LatestDB/backup.sql
     ```
     
 3. **Python backend**
@@ -44,4 +46,4 @@ In order to run the software in question, be sure to follow the following steps:
     
 4. **Run**
     
-    Open index.html with Live Server
+    Open `index.html` with Live Server
