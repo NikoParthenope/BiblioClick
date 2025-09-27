@@ -10,7 +10,7 @@
 <body style="background-image: url(assets/Libri.jpg); background-repeat: no-repeat; background-size: cover;">
     <div class="ElementContentColumn" style="height: 100vh;width:100vw;">
         <nav style="display:flex;width: 99%;justify-content: space-between;">
-            <h2>BibioClick</h2>
+
 
             <div class="Profile">
                 <div class="ImgProfile"></div>
@@ -22,115 +22,32 @@
             </div>
         </nav>
         <div class="ElementContentColumn" style="width:100%;">
-            <section id="ClubInformationSection" class="ElementContentRow" style="height: auto;">
-                <div class="ElementContentRow" style=" justify-content: flex-start;">
-                    <div style="margin-left:10px;margin-right:10px;width:100px; height: 100px; background-color: red;"></div>
-                    <div class="ElementContentolumn">
-                        <h1>CIao</h1>
-                        <h3>Come stai</h3>
-                    </div>
-                </div>
-                <div class="ElementContentRow" style="justify-content: flex-end;">
-                    <button style="position:absolute; top:0;">Tempo chiusura discussione</button>
-                </div>
-            </section>
+
             <div class="ElementContentColumn">
                 <section id="CommentInput" class="ElementContentRow" style="width:100%;height:25%;">
-                    <form style="width:90%;height:75%;display:flex;justify-content: center;margin-top:0; margin-bottom:20px;">
-                        <textarea id="UserComment" style="padding:10px;width:100%;height:100%;" ></textarea>
+                    <form id="RispostaCommento" style="width:90%;height:75%;display:flex;justify-content: center;margin-top:0; margin-bottom:20px;">
+                        <textarea id="UserComment" style="padding:10px;width:100%;height:100%;" name="Comm" ></textarea>
+                        <div class="ElementContentColumn" style="justify-content: flex-end; width:30%;">
+                            <input type="submit" value="Invio">
+                        </div>
+                        
                     </form>
                 </section>
-                <section class="ElementContentColumn" style="display:flex; justify-content:center;width:100%;height:100%;">
+                <section class="ElementContentColumn" style="display:flex; justify-content:center;width:100%;height:70%;">
                     <hr style="width: 90%;position:absolute; top:0;">
-                    <section id="CommentSection" style="width:90%;height:100%;">
+                    <section id="CommentSection" style="width:90%;height:85%;overflow-y: scroll;">
                         
-                        <div>
-                            <div id="CommentoPrincipale" class="InformationContainer ElementContentRow" style="margin-bottom:0;margin-left:0;width: 100%;height:auto;justify-content: flex-start;">
-                                <div class="CommentImage" style="margin:10px;">
-                                    <div class="Profile">
-                                        <div class="ImgProfile"></div>
-                                        <div id="ProfileCommentImage" >
-                                            <div id="Content" class="ContentWrapper GlassColor">
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="NameAndComment">
-                                    <h5>Nome Utente</h5>
-                                    <p>CIAO</p>
-                                </div>
-                                
-                            </div>
-                            <div class="CommentNavBar">
-                                <input id="VisualizzaRisposte" type="checkbox" checked="checked" style="display:none;">
-                                <label for="VisualizzaRisposte">Visualizza</label>
-                                <label for="VisualizzaRisposte">=></label>
-                            </div>
-                            <div class="SezioneRisposte" style="width:100%;margin-top:0;">
-                                <div style="width:100%;">
-                                    <div class="InformationContainer ElementContentRow" style="margin-bottom:0;margin-left:0;width: 90%;height:auto;justify-content: flex-start;">
-                                <div class="CommentImage" style="margin:10px;">
-                                    <div class="Profile">
-                                        <div class="ImgProfile"></div>
-                                        <div id="ProfileCommentImage" >
-                                            <div id="Content" class="ContentWrapper GlassColor">
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="NameAndComment">
-                                    <h5>Nome Utente</h5>
-                                    <p>CIAO</p>
-                                </div>
-                                </div>
-                                    <div class="CommentNavBar">
-                                        <input id="VisualizzaRisposte2" type="checkbox" checked="checked" style="display:none;">
-                                        <label for="VisualizzaRisposte2">Visualizza</label>
-                                        <label for="VisualizzaRisposte2">=></label>
-                                    </div>
-                                <div class="SezioneRisposte" style="width:100%;margin-top:0;">
-                                <div style="width:90%;">
-                                    <div class="InformationContainer ElementContentRow" style="margin-bottom:0;margin-left:0;width: 90%;height:auto;justify-content: flex-start;">
-                                <div class="CommentImage" style="margin:10px;">
-                                    <div class="Profile">
-                                        <div class="ImgProfile"></div>
-                                        <div id="ProfileCommentImage" >
-                                            <div id="Content" class="ContentWrapper GlassColor">
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="NameAndComment">
-                                    <h5>Nome Utente</h5>
-                                    <p>CIAO</p>
-                                </div>
-                                </div>
-                                    <div class="CommentNavBar">
-                                        <input id="VisualizzaRisposte3" type="checkbox" checked="checked" style="display:none;">
-                                        <label for="VisualizzaRisposte3">Visualizza</label>
-                                        <label for="VisualizzaRisposte3">=></label>
-                                    </div>
-                                    
-                                </div>
+                        
+                            
 
-                                
-                            </div>
-                                </div>
-
-                                
-                            </div>
-
-                    </div>
+                        
                     </section>
                 </section>
             </div>
             
         </div>
     </div>
-    <script type="module" src="./JS/index.js">
+    <script type="module" src="./JS/DiscussionPage.js">
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { Indicator, Pagination, login , logout,createLoginVisible} from "./Libreria.js";
+import { Indicator, Pagination, login , logout,createLoginVisible, createLoginInvisible} from "./Libreria.js";
 
 
 const url_s = document.getElementById("FormSearch");
@@ -6,11 +6,13 @@ let risultatoRicerca = [];
 
 
 addEventListener("DOMContentLoaded", () => {
+    console.log(JSON.parse(localStorage.getItem("Utente")))
     if(JSON.parse(localStorage.getItem("Utente"))){
         console.log("Utente LOggato");
         login();
-        createLoginVisible()
+        createLoginVisible();
         document.getElementById("LogoutButton").addEventListener("click", () =>{
+            createLoginInvisible();
             logout();
             
         })

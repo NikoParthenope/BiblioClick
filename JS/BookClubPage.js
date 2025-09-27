@@ -3,6 +3,9 @@ const calendar = new Calendario([]);
 const IndicatorCalendar = new Indicator("CalendarDaysID","div","IndicatorePagina",".Active",0,10);
 IndicatorCalendar.HoverMouse();
 IndicatorCalendar.NotHoverMouse();
+document.getElementById("LoginButton").addEventListener("click", () => {
+    window.location.href = "LogRegPage.html";
+});
 
 function prendiEventi(){
     const urlpar = new URLSearchParams(document.location.search);
@@ -14,14 +17,14 @@ function prendiEventi(){
         .then(data =>{
             console.log(data.clubinf);
             document.getElementById("NomeBookClub").textContent = data.clubinf[1];
-            document.getElementById("DescrizioneBookClub").textContent = "DescrizioneClub"
             document.getElementById("LinguaClub").textContent = data.clubinf[3];;
-            document.getElementById("NumeroPartecipanti").innerHTML = '12/' + data.clubinf[2]; + '&#128110';
-            document.getElementById("TematicaDelClub").textContent = data.clubinf[5];; 
-            document.getElementById("ProssimaDiscussione").textContent = data.Dettagli[0][2];
-            document.getElementById("BottonePartecipazioneDiscussione").textContent = data.Dettagli[0][3];
+            document.getElementById("NumeroPartecipanti").innerHTML = '';
+            document.getElementById("TematicaDelClub").textContent = data.clubinf[5];
+            document.getElementById("ProssimaDiscussione").textContent = ""
+            document.getElementById("BottonePartecipazioneDiscussione").textContent = "Accedi";
             if(data.QueryReg === "Si"){
                 document.getElementById("BottoneIscrizioneClub").textContent = "Iscritto";
+                document.getElementById("BottonePartecipazioneDiscussione").disabled = false;
             }else{
                 document.getElementById("BottoneIscrizioneClub").addEventListener("click", () =>{
                 const urlpar = new URLSearchParams(document.location.search);
@@ -48,11 +51,12 @@ function prendiEventi(){
 }
 
 
-/*Gestione Login/Logout*/
+
 document.addEventListener("DOMContentLoaded", () =>{
         if(JSON.parse(localStorage.getItem("Utente"))){
             console.log("Utente LOggato");
             login();
+            prendiEventi();
             document.getElementById("LogoutButton").addEventListener("click", () =>{
                 logout();
                 
@@ -64,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     calendar.render()
     IndicatorCalendar.SetOnActive();
-    prendiEventi();
+    
 
 })
 

@@ -112,7 +112,7 @@ body{
     margin-top: 25px;
     padding:0;
 }
-#GeneralForm div input[type="text"],#GeneralFormPassword div input[type="text"]{
+#GeneralForm div input[type="text"],#GeneralForm div input[type="password"],#GeneralFormPassword div input[type="password"]{
     border: none;
     width: 15vw;
     height: 6vh;

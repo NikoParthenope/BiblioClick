@@ -2,7 +2,7 @@ from flask import Flask,jsonify, request
 from flask_cors import CORS
 import mysql.connector
 import datetime
-
+from datetime import datetime
 DB = mysql.connector.connect(
     host="localhost",
     user="webuser",
@@ -12,6 +12,30 @@ DB = mysql.connector.connect(
 
 app = Flask(__name__)
 CORS(app)
+@app.route('/PrendiCommenti', methods=["GET"])
+def commentiw():
+    dbcursor = DB.cursor()
+    id=request.args.get("idDiscussione")
+    query = "SELECT * FROM Commenti WHERE id_evento = %s"
+    valori = (id,)
+    dbcursor.execute(query,valori)
+    result = dbcursor.fetchall()
+    dbcursor.close()
+
+    return jsonify({"msg":result})
+
+@app.route('/AggiungiCommenti', methods=["POST"])
+def commenti():
+    commento = request.form.get("Comm")
+    username = request.form.get("username")
+    idDiscussione = request.form.get("idDiscussione")
+    dbcursor = DB.cursor()
+    query = "INSERT INTO Commenti (testocommento, username,id_evento) VALUES (%s,%s,%s)"
+    valori = (commento, username,idDiscussione)
+    dbcursor.execute(query,valori)
+    dbcursor.close()
+    DB.commit()
+    return jsonify({"TEST":"OK"})
 
 @app.route('/Register', methods=["POST"])
 def main1():
@@ -32,7 +56,7 @@ def main2():
     row = dbcursor.fetchone()
     dbcursor.close()
     if (row):
-        return jsonify({"msg":"OK"})
+        return jsonify({"msg":"OK", "informazioni":row})
     else:
         return jsonify({"msg":"Fail"})
     
@@ -147,13 +171,23 @@ def main7():
     tema = request.form.get("tematicaClub")
     max_membri = request.form.get("numeroPartecipantiMax")
     id_utente=request.form.get("id_utente")
-
+    
     query = "INSERT INTO Club (nomeclub, tematicaclub, numeropartecipantimax, linguaclub, frequenzadiscussioni,id_admin) VALUES (%s, %s, %s, %s, %s, %s)"
     params = (nome, tema, max_membri, lingua, frequenza,id_utente)
 
     cursor = DB.cursor(dictionary=True)
     cursor.execute(query, params)
     rows = cursor.rowcount
+
+    query2 = "SELECT id_club FROM Club ORDER BY id_club DESC LIMIT 1;"
+    cursor.execute(query2)
+    idClub = cursor.fetchone()
+    idCLUBID = idClub['id_club']
+
+    query3 = "INSERT INTO Eventi (id_club,nomeevento) VALUES (%s,%s)"
+    valori = (idCLUBID, "")
+    cursor.execute(query3,valori)
+
     DB.commit()
     cursor.close()
 

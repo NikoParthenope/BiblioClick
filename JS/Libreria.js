@@ -166,6 +166,7 @@ export class User {
 export function createLoginVisible(){
     document.getElementById("CreateClubButton").style.visibility = "visible";
 }
+
 export function login() {
     const Menu = document.getElementById("Content");
     Menu.innerHTML = "";
@@ -180,8 +181,11 @@ export function login() {
     Menu.appendChild(bottoneLogout);
 
 }
-export function logout() {
+export function createLoginInvisible(){
     document.getElementById("CreateClubButton").style.visibility = "hidden";
+}
+export function logout() {
+    
     console.log("test");
     const Menu = document.getElementById("Content");
     Menu.innerHTML = "";
@@ -242,7 +246,7 @@ export class ClubClass {
         thirdP.style.position = "absolute";
         thirdP.style.top = "0";
         thirdP.style.right = "2vw";
-        thirdP.innerHTML = '12/' + this.numeropartecipantimax + '&#128110';
+        thirdP.innerHTML = '';
         let SixthDiv = document.createElement("div");
         SixthDiv.classList.add("ElementContentColumn");
         let header = document.createElement("h1");
@@ -286,10 +290,70 @@ export class Eventi {
 }
 
 export class Commenti {
-    #id_commento = null;
-    #testoCommento = null;
-    #username = null;
-    #id_risposta = null;
+
+    constructor(testoCommento,username){
+        this.testoCommento = testoCommento;
+        this.username = username;
+    }
+    render(){
+        
+        const commentoPrincipale = document.createElement('div');
+        commentoPrincipale.id = 'CommentoPrincipale';
+        commentoPrincipale.className = 'InformationContainer ElementContentRow';
+        commentoPrincipale.style.cssText = 'margin-bottom:0;margin-left:0;width:100%;height:auto;justify-content:flex-start;';
+
+        
+        const commentImage = document.createElement('div');
+        commentImage.className = 'CommentImage';
+        commentImage.style.margin = '10px';
+
+        
+        const profile = document.createElement('div');
+        profile.className = 'Profile';
+
+        const imgProfile = document.createElement('div');
+        imgProfile.className = 'ImgProfile';
+
+        
+        const profileCommentImage = document.createElement('div');
+        profileCommentImage.id = 'ProfileCommentImage';
+
+        const content = document.createElement('div');
+        content.id = 'Content';
+        content.className = 'ContentWrapper GlassColor';
+
+        
+        profileCommentImage.appendChild(content);
+
+        
+        profile.appendChild(imgProfile);
+        profile.appendChild(profileCommentImage);
+
+        
+        commentImage.appendChild(profile);
+
+        
+        const nameAndComment = document.createElement('div');
+        nameAndComment.className = 'NameAndComment';
+
+        const username = document.createElement('h5');
+        username.textContent = this.username;
+
+        const commentText = document.createElement('p');
+        commentText.textContent = this.testoCommento;
+
+        
+        nameAndComment.appendChild(username);
+        nameAndComment.appendChild(commentText);
+
+        
+        commentoPrincipale.appendChild(commentImage);
+        commentoPrincipale.appendChild(nameAndComment);
+
+        
+        document.getElementById("CommentSection").appendChild(commentoPrincipale); 
+
+    }
 }
 
 export class Calendario{
